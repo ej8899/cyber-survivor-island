@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Navigate the island marketplace and spot scams before it\’s too late!',
     },
     deepfakes: {
-      title: 'Deep Water Deep Fakes',
-      description: 'Don\'t drown in the deep fakes!',
+      title: 'Deep Water... Deep Fakes',
+      description: '🌊 Dive into the world of deception on Cyber-Survivor Island\'s “Deep Water, Deep Fakes,” where you\’ll uncover how to spot manipulated media and protect yourself from falling for convincing but false digital creations. 🔍🎥',
     },
     blackmail: {
       title: 'Extortion Point',
