@@ -49,6 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Deep Water Deep Fakes',
       description: 'Don\'t drown in the deep fakes!',
     },
+    blackmail: {
+      title: 'Blackmailers Bluff',
+      description: 'Avoid cyer blackmailers',
+    },
   };
 
   // Track completed areas
