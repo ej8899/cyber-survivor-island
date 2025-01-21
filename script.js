@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const areaDescription = document.getElementById('area-description');
   const closeModal = document.getElementById('close-modal');
   const startChallenge = document.getElementById('start-challenge');
+  
 
   const asciiArt = `
 ░█▀▀░▀▀█░█▄█░█▀▀░█▀▄░▀█▀░█▀█░░░░█▀▀░█▀█
@@ -18,40 +19,40 @@ document.addEventListener('DOMContentLoaded', () => {
   // Predefined stories for areas
   const areaStories = {
     lagoon: {
-      title: 'Phishing Lagoon',
-      description: 'Spot and avoid dangerous phishing emails to progress!',
+      title: 'Phishing Cove',
+      description: 'Spot and avoid dangerous phishing emails to navigate safely!',
     },
     jungle: {
-      title: 'Social Media Jungle',
-      description: 'Learn to navigate fake profiles and scammy messages!',
+      title: 'Social Media Scam Safari',
+      description: 'Explore the jungle while dodging fake profiles and scammy messages!',
     },
     volcano: {
-      title: 'Vishing Volcano',
+      title: 'The Vishing Volcano',
       description: 'Identify and stop phone scams before they erupt!',
     },
     passwords: {
-      title: 'Password Cliffs',
-      description: 'Create strong passwords and protect your accounts!',
+      title: 'Fortress of Passwords',
+      description: 'Build strong defenses with unbreakable passwords!',
     },
     darkweb: {
       title: 'Dark Web Depths',
       description: 'Learn what lingers in the depths of the Dark Web.',
     },
     shipwreck: {
-      title: 'Trojan Shipwreck',
-      description: 'A pirate ship was wrecked by a Trojan attack.',
+      title: 'Malware Wreckage',
+      description: 'A pirate ship was sunk by malware. Recover its secrets!',
     },
     market: {
-      title: 'Market Scam',
-      description: 'Navigate through the market and avoid scams!',
+      title: 'Fraud Bazaar',
+      description: 'Navigate the island marketplace and spot scams before it\’s too late!',
     },
     deepfakes: {
       title: 'Deep Water Deep Fakes',
       description: 'Don\'t drown in the deep fakes!',
     },
     blackmail: {
-      title: 'Blackmailers Bluff',
-      description: 'Avoid cyer blackmailers',
+      title: 'Extortion Point',
+      description: 'Face and thwart the threats of online blackmailers.',
     },
   };
 
