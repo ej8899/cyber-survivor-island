@@ -32,7 +32,7 @@ body {
   margin-top: 0px;
   background: url('./graphics/parchment.png') center/cover;
   padding: 10px 20px;
-  border: 3px solid #d9a86c; /* Rope-like color */
+  border: 4px solid #d9a86c; /* Rope-like color */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transform: rotate(-2deg);
   letter-spacing: 1px;
@@ -55,8 +55,8 @@ body {
 
 .map-area {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: rgba(255, 0, 0, 0.5);
   border-radius: 50%;
   cursor: pointer;
@@ -64,16 +64,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; 
+  
 }
 
 .map-area.incomplete::before {
   content: '';
   display: block;
-  width: 50%;
-  height: 50%;
-  background: url('./graphics/svg/magnify.svg') no-repeat center center;
-  background-size: contain;
+  width: 100%;
+  height: 100%;
+  background: url('./graphics/svg/magnifying-glass-search-svgrepo-com.svg') no-repeat center center;
+  background-size:cover;
 }
 
 .map-area.completed {
@@ -81,10 +81,12 @@ body {
 }
 
 .map-area.completed::after {
-  content: '✔'; /* Unicode for checkmark */
-  font-size: 1.5em;
-  color: black;
-  position: absolute;
+  content: '';
+  display: block;
+  width: 90%;
+  height: 90%;
+  background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
+  background-size:cover;
 }
 
 @keyframes pulse {

@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = document.getElementById('close-modal');
   const startChallenge = document.getElementById('start-challenge');
 
+  const asciiArt = `
+░█▀▀░▀▀█░█▄█░█▀▀░█▀▄░▀█▀░█▀█░░░░█▀▀░█▀█
+░█▀▀░░░█░█░█░█▀▀░█░█░░█░░█▀█░░░░█░░░█▀█
+░▀▀▀░▀▀░░▀░▀░▀▀▀░▀▀░░▀▀▀░▀░▀░▀░░▀▀▀░▀░▀
+(C) 2025 ernie@erniejohnson.ca`;
+
+  console.log(`%c${asciiArt}`, 'color: teal; font-family: monospace; font-size: 16px;');
+
+
   // Predefined stories for areas
   const areaStories = {
     lagoon: {
