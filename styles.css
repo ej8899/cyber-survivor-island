@@ -8,17 +8,28 @@ body {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  width: 100%;
 }
 
 #map {
   position: relative;
   width: 100%;
   height: 100%;
+  max-width: 1000px; /* Optional: set a max size for the map */
+  margin: 0 auto;
 }
 
 #island-map {
   width: 100%;
   height: auto;
+}
+
+.game-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .map-area {
@@ -56,7 +67,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .modal-content {

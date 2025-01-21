@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const areaStories = {
     lagoon: {
       title: 'Phishing Lagoon',
-      description: 'You find yourself at the Phishing Lagoon. Spot and avoid dangerous phishing emails to progress!',
+      description: 'Spot and avoid dangerous phishing emails to progress!',
     },
     jungle: {
       title: 'Social Media Jungle',
-      description: 'In the Social Media Jungle, learn to navigate fake profiles and scammy messages!',
+      description: 'Learn to navigate fake profiles and scammy messages!',
     },
     volcano: {
       title: 'Vishing Volcano',
-      description: 'Face the Vishing Volcano! Identify and stop phone scams before they erupt!',
+      description: 'Identify and stop phone scams before they erupt!',
     },
   };
 
@@ -26,9 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   areas.forEach(area => {
     area.addEventListener('click', () => {
       const areaId = area.id;
-      const story = areaStories[areaId];
-      areaTitle.textContent = story.title;
-      areaDescription.textContent = story.description;
+
+      // Show modal with the area's story
+      areaTitle.textContent = areaStories[areaId].title;
+      areaDescription.textContent = areaStories[areaId].description;
+
+      // Store the active area's ID on the modal for reference
+      modal.dataset.activeArea = areaId;
+
+      // Show the modal
       modal.classList.remove('hidden');
     });
   });
@@ -38,9 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.add('hidden');
   });
 
-  // Start challenge (you can replace this with challenge logic)
+  // Start challenge
   startChallenge.addEventListener('click', () => {
-    alert('Challenge starting...');
-    modal.classList.add('hidden');
+    const activeArea = modal.dataset.activeArea;
+
+    if (activeArea) {
+      alert(`Starting challenge for ${areaStories[activeArea].title}...`);
+
+      // Mark the area as completed (visual feedback)
+      const areaElement = document.getElementById(activeArea);
+      areaElement.style.backgroundColor = 'green';
+      areaElement.style.pointerEvents = 'none';
+
+      // Close the modal
+      modal.classList.add('hidden');
+    }
   });
 });
