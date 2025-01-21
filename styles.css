@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+}
+
+#game-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#island-map {
+  width: 100%;
+  height: auto;
+}
+
+.map-area {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#story-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+}
