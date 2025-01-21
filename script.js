@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Market Scam',
       description: 'Navigate through the market and avoid scams!',
     },
+    deepfakes: {
+      title: 'Deep Water Deep Fakes',
+      description: 'Don\'t drown in the deep fakes!',
+    },
   };
 
   // Track completed areas
