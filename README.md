@@ -94,3 +94,5 @@ This project is presently licensed under the **MIT License**. See the [LICENSE](
 
 ## Credits
 Some icons: https://www.svgrepo.com/
+ASCII art: https://www.asciiart.eu/text-to-ascii-art 
+
