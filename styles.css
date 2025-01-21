@@ -25,12 +25,20 @@ body {
 }
 
 .game-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Pirata One', serif;
+  font-size: 3em;
+  color: #8b5e3c; /* Wood color */
+  text-align: center;
+  margin-top: 30px;
+  background: url('./graphics/parchment.png') center/cover;
+  padding: 10px 20px;
+  border: 3px solid #d9a86c; /* Rope-like color */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transform: rotate(-2deg);
+  letter-spacing: 1px;
+  width: 80%;
 }
+
 
 .map-area {
   position: absolute;
