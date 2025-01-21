@@ -43,6 +43,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; 
+}
+
+.map-area.incomplete::before {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: url('./graphics/svg/magnify.svg') no-repeat center center;
+  background-size: contain;
 }
 
 .map-area.completed {
@@ -165,7 +175,7 @@ body {
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 80%;
   height: 20px;
   background: #d9a86c;
   border-radius: 10px 10px 0 0;
@@ -175,10 +185,10 @@ body {
 .modal-container::after {
   content: '';
   position: absolute;
-  bottom: -20px;
+  bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 80%;
   height: 20px;
   background: #d9a86c;
   border-radius: 0 0 10px 10px;

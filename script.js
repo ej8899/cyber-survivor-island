@@ -20,6 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Vishing Volcano',
       description: 'Identify and stop phone scams before they erupt!',
     },
+    passwords: {
+      title: 'Password Cliffs',
+      description: 'Create strong passwords and protect your accounts!',
+    },
+    darkweb: {
+      title: 'Dark Web Depths',
+      description: 'Learn what lingers in the depths of the Dark Web.',
+    },
+    shipwreck: {
+      title: 'Trojan Shipwreck',
+      description: 'A pirate ship was wrecked by a Trojan attack.',
+    },
+    market: {
+      title: 'Market Scam',
+      description: 'Navigate through the market and avoid scams!',
+    },
   };
 
   // Track completed areas
@@ -27,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Click event for each area
   areas.forEach(area => {
+    area.classList.add('incomplete');
     area.addEventListener('click', () => {
       const areaId = area.id;
 
@@ -56,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Mark the area as completed (visual feedback)
       const areaElement = document.getElementById(activeArea);
+      areaElement.classList.remove('incomplete');
       areaElement.classList.add('completed');
 
       // Close the modal
