@@ -40,6 +40,20 @@ body {
   border-radius: 50%;
   cursor: pointer;
   animation: pulse 1.5s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-area.completed {
+  background-color: rgba(0, 255, 0, 0.5); /* Green for completed areas */
+}
+
+.map-area.completed::after {
+  content: '✔'; /* Unicode for checkmark */
+  font-size: 1.5em;
+  color: black;
+  position: absolute;
 }
 
 @keyframes pulse {

@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
+  // Track completed areas
+  const completedAreas = new Set();
+
   // Click event for each area
   areas.forEach(area => {
     area.addEventListener('click', () => {
@@ -53,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Mark the area as completed (visual feedback)
       const areaElement = document.getElementById(activeArea);
-      areaElement.style.backgroundColor = 'green';
-      areaElement.style.pointerEvents = 'none';
+      areaElement.classList.add('completed');
 
       // Close the modal
       modal.classList.add('hidden');
