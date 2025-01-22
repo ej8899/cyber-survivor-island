@@ -4,6 +4,7 @@ let maxMusicVolume = .25;
 let soundVolume = 0;
 let maxSoundVolume = 1;
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const areas = document.querySelectorAll('.map-area');
   const modal = document.getElementById('story-modal');
@@ -13,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const startChallenge = document.getElementById('start-challenge');
 
   const sfxSound = document.getElementById('sfxSound');
+
+  const progressFill = document.getElementById('progressFill');
+  const totalAreas = document.querySelectorAll('.map-area').length;
+  let completedProgress = 0;
 
   const asciiArt = `
 ░█▀▀░▀▀█░█▄█░█▀▀░█▀▄░▀█▀░█▀█░░░░█▀▀░█▀█
@@ -121,6 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const areaElement = document.getElementById(activeArea);
       areaElement.classList.remove('incomplete');
       areaElement.classList.add('completed');
+      
+      // Update progress bar
+      completedProgress++;
+      const progress = (completedProgress / totalAreas) * 100;
+      progressFill.style.width = `${progress}%`;
+      console.log(`Progress: ${progress.toFixed(2)}%`);
 
       // Close the modal
       modal.classList.add('hidden');
