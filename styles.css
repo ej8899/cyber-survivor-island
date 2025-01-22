@@ -543,84 +543,128 @@ button:active {
 
 
 /* Instructions Modal Background */
+/* Modal Background */
 #instructionsModal {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 1000; /* Ensure it's above everything else */
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
 }
 
-/* Instructions Modal Content */
+/* Modal Content */
 .instructions-modal-content {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
+  background: linear-gradient(135deg, #0077be, #00c853); /* Tropical gradient */
+  border: 4px solid #ffd700; /* Gold border */
+  border-radius: 15px;
+  padding: 10px;
+  padding-left: 0px;
+  margin-left: 0px;
   width: 70%;
   max-width: 800px;
-  display: flex; /* Ensure horizontal layout */
-  flex-direction: row; /* Row layout for image on the left */
-  align-items: center; /* Vertically align content */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  font-family: "Caveat Brush", serif;
+  color: #ffffff; /* White text for contrast */
+  position: relative; /* Ensure the image can be positioned outside */
+  overflow: visible; /* Allow content to spill outside */
 }
 
 /* Image Section */
 .instructions-modal-image {
   flex: 1;
-  max-width: 40%; /* Adjust this if needed */
-  height: auto; /* Let the height adjust automatically */
+  width: 50%;
+  max-width: 50%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 10px;
+  margin: 0px;
+  /* border-right: 3px solid #ffd700;
+  padding-right: 10px; */
+  position: relative; /* Position relative for absolute positioning of the image */
+  transform: translate(-5%, 8%); /* Move the image outside the modal */
+  z-index: 1; /* Ensure the image is layered correctly */
 }
 
 .instructions-modal-image img {
-  height: 100%; /* Scale the image to fit the modal content height */
-  max-height: 300px; /* Set a maximum height */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure the image fits nicely */
+  width: 120%;
+  /* height: 300px; */
+  height: 120%;
+  /* max-height: 400px; */
+  object-fit: contain;
   border-radius: 10px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  max-height: none; /* Prevent clipping */
+  object-fit: contain;
 }
-
 
 /* Text Section */
 .instructions-modal-text {
-  flex: 2; /* Take 2 parts of the space */
-  padding-left: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
+  flex: 2;
+  padding-left: 00px;
+  color: #272525;
+  font-family: "Caveat Brush", serif;
 }
 
 .instructions-modal-text h2 {
-  font-size: 24px;
-  color: #0077be; /* Tropical theme color */
+  font-size: 36px;
+  font-weight: normal;
+  color: #ffd700; /* Gold title color */
   margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .instructions-modal-text p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  font-size: 20px;
+  
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .instructions-modal-text button {
-  margin-top: 20px;
   padding: 10px 20px;
-  background: #0077be;
-  color: #fff;
+  background: #ffd700;
+  color: #0077be; /* Tropical blue for text */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .instructions-modal-text button:hover {
-  background: #005f99;
+  background: #ffc107; /* Slightly brighter gold on hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+#closeInstructionsButton {
+  font-family: "Caveat Brush", serif;
+  font-weight: normal;
+  font-size: 18px;
+  padding: 5px 10px;
+  color: #ffffff;
+  background: #0077be; /* Tropical ocean blue */
+  border: 2px solid #d9a86c; /* Rope-like border */
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 2px #000;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+#closeInstructionsButton:hover {
+  background: #005f99; /* Darker blue on hover */
+  transform: rotate(1deg) scale(1.05); /* Slight zoom effect */
 }
