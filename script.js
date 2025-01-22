@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const startChallenge = document.getElementById('start-challenge');
   const infoAreas = document.querySelectorAll('.map-area.info');
 
+  const instructionsModal = document.getElementById('instructionsModal');
+  const closeInstructionsButton = document.getElementById('closeInstructionsButton');
+
   const skullAndBones = document.getElementById('skull-and-bones');
 
   const sfxSound = document.getElementById('sfxSound');
@@ -32,6 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(`%c${asciiArt}`, 'color: teal; font-family: monospace; font-size: 16px;');
 
+  // Show the modal on load
+  instructionsModal.style.display = 'flex';
+
+  // Close the modal when the button is clicked
+  closeInstructionsButton.addEventListener('click', () => {
+    playTrack(0, 139);
+    instructionsModal.style.display = 'none';
+  });
 
   // Predefined stories for areas
   const areaStories = {
