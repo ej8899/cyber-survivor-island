@@ -82,7 +82,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .map-area.incomplete::before {
@@ -92,6 +91,14 @@ body {
   height: 100%;
   background: url('./graphics/svg/magnifying-glass-search-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
+  transition: all 0.3 ease-in-out;
+}
+.map-area.incomplete {
+  filter: drop-shadow(0 0 0px transparent); /* No shadow by default */
+  transition: filter 0.3s ease-in-out; /* Smoothly apply the shadow */
+}
+.map-area.incomplete:hover {
+  filter: drop-shadow(0 0 10px #ffd700); /* Apply a gold glow */
 }
 
 .map-area.completed {
@@ -101,21 +108,21 @@ body {
 .map-area.completed::after {
   content: '';
   display: block;
-  width: 90%;
-  height: 90%;
+  width: 110%;
+  height: 110%;
   background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   100% {
-    transform: scale(1);
+    transform: scale(0.9);
   }
 }
 
@@ -351,3 +358,32 @@ button:active {
   width: 120px;
 }
 
+
+#skull-and-bones {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 3px; /* Adjust as needed */
+  width: 100px; /* Adjust size */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 10; /* Ensure it stays above other elements */
+  pointer-events: auto; /* Allow hover interactions */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover */
+}
+
+#skull-and-bones:hover {
+  filter: drop-shadow(0 0 10px #ffd700); /* Apply a gold glow */
+}
+.rotating {
+  animation: subtle-rotation 2s ease-in-out;
+}
+@keyframes subtle-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

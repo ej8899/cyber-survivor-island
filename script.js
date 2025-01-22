@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = document.getElementById('close-modal');
   const startChallenge = document.getElementById('start-challenge');
 
+  const skullAndBones = document.getElementById('skull-and-bones');
+
   const sfxSound = document.getElementById('sfxSound');
 
   const progressFill = document.getElementById('progressFill');
@@ -138,6 +140,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+
+  function triggerRandomRotation() {
+    if (!skullAndBones) return;
+
+    // Add the animation class
+    skullAndBones.classList.add('rotating');
+
+    // Remove the animation class after it completes (2 seconds)
+    setTimeout(() => {
+      skullAndBones.classList.remove('rotating');
+    }, 2000);
+
+    // Schedule the next rotation at a random interval (3-7 seconds)
+    const nextInterval = Math.random() * (7000 - 3000) + 3000;
+    console.log(`Next rotation scheduled in ${nextInterval / 1000} seconds.`);
+    setTimeout(triggerRandomRotation, nextInterval);
+  }
+  triggerRandomRotation();
 
   // end of DOM handler
 });
