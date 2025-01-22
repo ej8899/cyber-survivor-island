@@ -1,3 +1,9 @@
+let isMuted = true;
+let musicVolume = 0;    // 0-1 (0=muted)
+let maxMusicVolume = .3;
+let soundVolume = 0;
+let maxSoundVolume = 1;
+
 document.addEventListener('DOMContentLoaded', () => {
   const areas = document.querySelectorAll('.map-area');
   const modal = document.getElementById('story-modal');
@@ -6,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = document.getElementById('close-modal');
   const startChallenge = document.getElementById('start-challenge');
 
-  const parrotSound = document.getElementById('parrotSound');
+  const sfxSound = document.getElementById('sfxSound');
 
   const asciiArt = `
 ░█▀▀░▀▀█░█▄█░█▀▀░█▀▄░▀█▀░█▀█░░░░█▀▀░█▀█
@@ -19,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Predefined stories for areas
   const areaStories = {
-    lagoon: {
+    phishing: {
       title: 'Phishing Cove',
       description: 'Spot and avoid dangerous phishing emails to navigate safely!',
     },
@@ -67,23 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const areaId = area.id;
 
       // Play the area click sound
-      if (parrotSound) {
+      if (sfxSound) {
         let playCount = 0;
 
-        // Function to play the parrot sound and track count
-        const playParrotSound = () => {
+        // Function to play the sfx sound and track count
+        const playSfxSound = () => {
           playCount++;
-          parrotSound.currentTime = 0;
-          parrotSound.play().catch(err => console.error("Error playing parrot sound:", err));
-          console.log(`Parrot sound played ${playCount} times.`);
+          sfxSound.currentTime = 0;
+          sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
+          console.log(`Sfx sound played ${playCount} times.`);
           if (playCount < 2) {
-            parrotSound.onended = playParrotSound; // Play again when the first play ends
+            sfxSound.onended = playSfxSound; // Play again when the first play ends
           } else {
-            parrotSound.onended = null; // Remove the event listener after the second play
+            sfxSound.onended = null; // Remove the event listener after the second play
           }
         };
 
-        playParrotSound(); // Start the first play
+        playSfxSound(); // Start the first play
       }
 
       // Show modal with the area's story
@@ -92,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Store the active area's ID on the modal for reference
       modal.dataset.activeArea = areaId;
+      console.log(`Active area set to: ${areaId}`);
 
       // Show the modal
       modal.classList.remove('hidden');

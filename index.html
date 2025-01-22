@@ -13,7 +13,7 @@
 
 <body>
   <audio id="audioPlayer" src="./sounds/pirate-music.mp3"></audio>
-  <audio id="parrotSound" src="./sounds/parrot-5.wav"></audio>
+  <audio id="sfxSound" src="./sounds/parrot-5.wav"></audio>
 
   <div id="game-container">
     <div class="title-wrapper">
@@ -24,18 +24,18 @@
     <div id="map" style="position: relative;">
       <img src="./graphics/cyber-survivor-map.webp" alt="Cyber Survivor Island" id="island-map">
       <!-- Clickable Areas -->
-      <div class="map-area" id="lagoon" data-area="Phishing Lagoon" style="top: 40%; left: 45%;"></div>
+      <div class="map-area" id="phishing" data-area="Phishing Lagoon" style="top: 40%; left: 45%;"></div>
       <div class="map-area" id="jungle" data-area="Social Media Jungle" style="top: 15%; left: 60%;"></div>
       <div class="map-area" id="volcano" data-area="Vishing Volcano" style="top: 24%; left: 86%;"></div>
       <div class="map-area" id="passwords" data-area="Password Cliffs" style="top: 24%; left: 76%;"></div>
       <div class="map-area" id="darkweb" data-area="Dark Web Depths" style="top: 54%; left: 4%;"></div>
-      <div class="map-area" id="shipwreck" data-area="Trojan Ship Wreck" style="top: 60%; left: 24%;"></div>
+      <div class="map-area" id="shipwreck" data-area="Malware Ship Wreck" style="top: 60%; left: 24%;"></div>
       <div class="map-area" id="market" data-area="Market Scams" style="top: 42%; left: 23%;"></div>
       <div class="map-area" id="deepfakes" data-area="Deep Water Deep Fakes" style="top: 52%; left: 80%;"></div>
       <div class="map-area" id="blackmail" data-area="Blackmail Bluffs" style="top: 18%; left: 10%;"></div>
       <button onclick="playTrack(0, 139)">Play Track 1</button>
       <button onclick="playTrack(411, 539)">Play Track 2</button>
-      <button onclick="playTrack(0, 0)">Mute Sounds</button>
+      <button id="muteButton">Mute Sounds</button>
     </div>
 
     <!-- Story Modal -->
