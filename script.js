@@ -68,10 +68,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Play the area click sound
       if (parrotSound) {
-        parrotSound.currentTime = 0; // Reset to the start
-        parrotSound.play().catch(err => {
-          console.error("Error playing parrot sound:", err);
-        });
+        let playCount = 0;
+
+        // Function to play the parrot sound and track count
+        const playParrotSound = () => {
+          playCount++;
+          parrotSound.currentTime = 0;
+          parrotSound.play().catch(err => console.error("Error playing parrot sound:", err));
+          console.log(`Parrot sound played ${playCount} times.`);
+          if (playCount < 2) {
+            parrotSound.onended = playParrotSound; // Play again when the first play ends
+          } else {
+            parrotSound.onended = null; // Remove the event listener after the second play
+          }
+        };
+
+        playParrotSound(); // Start the first play
       }
 
       // Show modal with the area's story
