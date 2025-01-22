@@ -38,14 +38,16 @@
       <!-- Button Container -->
       <div class="button-container">
         <div class="left-buttons">
-          <button onclick="playTrack(0, 139)">Play Track 1</button>
-          <button onclick="playTrack(411, 539)">Play Track 2</button>
+          <button onclick="playTrack(0, 139)">Music Track 1</button>
+          <button onclick="playTrack(411, 539)">Music Track 2</button>
           <button id="muteButton">Mute Sounds</button>
         </div>
 
         <div class="progress-wrapper">
           <div id="customProgressBar" class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
+            <div id="progressFill" class="progress-fill">
+              <span id="progressText" class="progress-text">0%</span>
+            </div>
           </div>
         </div>
         

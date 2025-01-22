@@ -82,6 +82,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: drop-shadow(0 0 0px transparent); /* No shadow by default */
+  transition: filter 0.3s ease-in-out; /* Smoothly apply the shadow */
 }
 
 .map-area.incomplete::before {
@@ -93,11 +95,8 @@ body {
   background-size:cover;
   transition: all 0.3 ease-in-out;
 }
-.map-area.incomplete {
-  filter: drop-shadow(0 0 0px transparent); /* No shadow by default */
-  transition: filter 0.3s ease-in-out; /* Smoothly apply the shadow */
-}
-.map-area.incomplete:hover {
+
+.map-area:hover {
   filter: drop-shadow(0 0 10px #ffd700); /* Apply a gold glow */
 }
 
@@ -108,8 +107,8 @@ body {
 .map-area.completed::after {
   content: '';
   display: block;
-  width: 110%;
-  height: 110%;
+  width: 100%;
+  height: 100%;
   background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
 }
@@ -302,6 +301,18 @@ body {
   overflow: hidden;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add depth */
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the text */
+  font-size: 16px;
+  font-weight: light;
+  color: #000000; /* White text for visibility */
+  pointer-events: none; /* Prevent interaction with the text */
+  font-family: "Caveat Brush", serif;
 }
 
 /* Glowing Animation */

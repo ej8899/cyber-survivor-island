@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sfxSound = document.getElementById('sfxSound');
 
   const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
   const totalAreas = document.querySelectorAll('.map-area').length;
   let completedProgress = 0;
 
@@ -131,8 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Update progress bar
       completedProgress++;
-      const progress = (completedProgress / totalAreas) * 100;
+      const progress = Math.round((completedProgress / totalAreas) * 100);
       progressFill.style.width = `${progress}%`;
+      progressText.textContent = `${progress}%`;
       console.log(`Progress: ${progress.toFixed(2)}%`);
 
       // Close the modal
@@ -154,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Schedule the next rotation at a random interval (3-7 seconds)
     const nextInterval = Math.random() * (7000 - 3000) + 3000;
-    console.log(`Next rotation scheduled in ${nextInterval / 1000} seconds.`);
+    // console.log(`Next rotation scheduled in ${nextInterval / 1000} seconds.`);
     setTimeout(triggerRandomRotation, nextInterval);
   }
   triggerRandomRotation();
