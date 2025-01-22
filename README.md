@@ -96,3 +96,9 @@ This project is presently licensed under the **MIT License**. See the [LICENSE](
 Some icons: https://www.svgrepo.com/
 ASCII art: https://www.asciiart.eu/text-to-ascii-art 
 
+Music:
+Artist: Ioannis Gutevas
+Label: Epic Music World
+Album: Treasure Island (EP)
+Year: 2022
+©℗: 2022 Epic Music World Label
