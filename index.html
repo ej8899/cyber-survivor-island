@@ -26,15 +26,20 @@
       <img src="./graphics/skull-and-bones.webp" alt="Skull and Bones" id="skull-and-bones">
   
       <!-- Clickable Areas -->
-      <div class="map-area" id="phishing" data-area="Phishing Lagoon" style="top: 40%; left: 45%;"></div>
-      <div class="map-area" id="jungle" data-area="Social Media Jungle" style="top: 15%; left: 60%;"></div>
-      <div class="map-area" id="volcano" data-area="Vishing Volcano" style="top: 24%; left: 86%;"></div>
-      <div class="map-area" id="passwords" data-area="Password Cliffs" style="top: 24%; left: 76%;"></div>
-      <div class="map-area" id="darkweb" data-area="Dark Web Depths" style="top: 54%; left: 4%;"></div>
-      <div class="map-area" id="shipwreck" data-area="Malware Ship Wreck" style="top: 60%; left: 24%;"></div>
-      <div class="map-area" id="market" data-area="Market Scams" style="top: 42%; left: 23%;"></div>
-      <div class="map-area" id="deepfakes" data-area="Deep Water Deep Fakes" style="top: 52%; left: 80%;"></div>
-      <div class="map-area" id="blackmail" data-area="Blackmail Bluffs" style="top: 18%; left: 10%;"></div>
+      <div class="map-area incomplete" id="phishing" data-area="The Phishing Lagoon"  style="top: 40%; left: 45%;"></div>
+      <div class="map-area incomplete" id="jungle" data-area="Social Media Scam Safari"  style="top: 15%; left: 60%;"></div>
+      <div class="map-area incomplete" id="volcano" data-area="The Vishing Volcano"style="top: 26%; left: 86%;"></div>
+      <div class="map-area incomplete" id="passwords" data-area="Fortress of Passwords" style="top: 24%; left: 76%;"></div>
+      <div class="map-area incomplete" id="darkweb" data-area="Depths of the Dark Web" style="top: 54%; left: 4%;"></div>
+      <div class="map-area incomplete" id="shipwreck" data-area="Malware Wreckage" style="top: 60%; left: 24%;"></div>
+      <div class="map-area incomplete" id="market" data-area="Shop the Fraud Bazaar" style="top: 42%; left: 23%;"></div>
+      <div class="map-area incomplete" id="deepfakes" data-area="Deep Water... Deep Fakes" style="top: 52%; left: 80%;"></div>
+      <div class="map-area incomplete" id="blackmail" data-area="Extortion Point" style="top: 18%; left: 10%;"></div>
+
+      <div class="map-area info" id="fun-fact" data-area="quick tip!" data-info="Did you know? Always verify the sender's email address to spot phishing attempts!" style="top: 30%; left: 75%;"></div>
+      <div class="map-area info" id="quick-tip"  data-area="quick tip!" data-info="Quick Tip: Use two-factor authentication (2FA) for extra account security." style="top: 50%; left: 20%;"></div>
+      <div class="map-area info" id="quick-tip2"  data-area="quick tip!" data-info="Quick Tip: Use two-factor authentication (2FA) for extra account security." style="top: 10%; left: 20%;"></div>
+
       <!-- Button Container -->
       <div class="button-container">
         <div class="left-buttons">
@@ -58,6 +63,15 @@
     <!-- end of Map Container Block -->
     </div>
 
+    <!-- Info Modal  -->
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span id="infoModalClose" class="close">&times;</span>
+        <p id="infoModalContent"></p>
+      </div>
+    </div>
+
+    
     <!-- Story Modal -->
     <div id="story-modal" class="hidden">
       <div class="modal-container">

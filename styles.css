@@ -58,6 +58,35 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Add underline */
+.game-title::after {
+  content: '';
+  position: absolute;
+  bottom: 10px; /* Adjust distance from text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%; /* Initial underline width */
+  height: 10px; /* Thickness of the underline */
+  background: #8b5e3c85; /* Gold color to match the text */
+  background: linear-gradient(90deg, #8b5e3c85, #ffd700, #8b5e3c85);
+  animation: pulse-underline 3s infinite ease-in-out;
+  z-index: -1;
+  clip-path: polygon(5% 0, 95% 0, 100% 100%, 0% 100%); /* Skewed ends */
+}
+
+/* Keyframes for pulsing effect */
+@keyframes pulse-underline {
+  0% {
+    width: 20%; /* Starting width */
+  }
+  50% {
+    width: 50%; /* Expanded width */
+  }
+  100% {
+    width: 20%; /* Return to starting width */
+  }
+}
+
 .title-wrapper {
   display: flex;
   justify-content: center;
@@ -82,11 +111,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 0 0px transparent); /* No shadow by default */
-  transition: filter 0.3s ease-in-out; /* Smoothly apply the shadow */
+  filter: drop-shadow(0 0 0px transparent); 
+  transition: all 0.3s ease-in-out;
 }
 
+.map-area.info {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #4caf50; /* Green to indicate informational areas */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4caf50; /* Glow effect */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.map-area.info:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+  box-shadow: 0 0 20px #4caf50; /* Intensify glow on hover */
+}
+
+
 .map-area.incomplete::before {
+  position: absolute;
   content: '';
   display: block;
   width: 100%;
@@ -94,6 +141,7 @@ body {
   background: url('./graphics/svg/magnifying-glass-search-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
   transition: all 0.3 ease-in-out;
+  z-index: 5;
 }
 
 .map-area:hover {
@@ -111,6 +159,38 @@ body {
   height: 100%;
   background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
+}
+
+.map-area.incomplete::after {
+  content: attr(data-area); /* Tooltip text */
+  position: absolute;
+  bottom: 95%; /* Position above the area */
+  left: 50%;
+  transform: translateX(-50%) rotate(-5.5deg);
+  background: #0077be;
+  color: #fff;
+  font-family: "Caveat Brush", serif;
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid black;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 10; /* Above magnifying glass */
+}
+
+/* Tooltip Tail */
+.map-area.incomplete:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px) rotate(3deg);
+}
+
+.map-area.incomplete:hover::before {
+  filter: drop-shadow(0 0 10px #ffd700); /* Glow on hover */
 }
 
 @keyframes pulse {
@@ -211,6 +291,9 @@ body {
   font-size: 1em;
   transition: all 0.3s ease-in-out;
   font-family: "Caveat Brush", serif;
+  font-weight: normal !important;
+  font-size: 16px !important;
+  text-shadow: none;
 }
 
 .modal-button:hover {
@@ -308,7 +391,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* Center the text */
-  font-size: 16px;
+  font-size: 18px;
   font-weight: light;
   color: #000000; /* White text for visibility */
   pointer-events: none; /* Prevent interaction with the text */
@@ -392,9 +475,68 @@ button:active {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(-5deg);
+    transform: rotate(-20deg);
   }
   100% {
     transform: rotate(0deg);
   }
 }
+
+
+
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 100; /* On top of other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.map-area.info {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #4caf50; /* Green to indicate informational areas */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #4caf50; /* Glow effect */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.map-area.info:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+  box-shadow: 0 0 20px #4caf50; /* Intensify glow on hover */
+}
+

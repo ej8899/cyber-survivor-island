@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const areaDescription = document.getElementById('area-description');
   const closeModal = document.getElementById('close-modal');
   const startChallenge = document.getElementById('start-challenge');
+  const infoAreas = document.querySelectorAll('.map-area.info');
 
   const skullAndBones = document.getElementById('skull-and-bones');
 
@@ -19,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const progressFill = document.getElementById('progressFill');
   const progressText = document.getElementById('progressText');
-  const totalAreas = document.querySelectorAll('.map-area').length;
+  const totalAreas = document.querySelectorAll('.map-area:not(.info').length;
+  // const gameAreas = document.querySelectorAll('.map-area:not(.info)').length;
   let completedProgress = 0;
 
   const asciiArt = `
@@ -73,6 +75,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Track completed areas
   const completedAreas = new Set();
+
+  // Function to show modal
+  function showModal(content) {
+    const modal = document.getElementById('infoModal');
+    const modalContent = document.getElementById('infoModalContent');
+    
+    modalContent.textContent = content; // Set modal content
+    modal.style.display = 'block'; // Show the modal
+  }
+
+  // Close the modal
+  const closeIModal = () => {
+    const modal = document.getElementById('infoModal');
+    modal.style.display = 'none';
+  };
+
+  // Attach event listeners to informational map areas
+  infoAreas.forEach(area => {
+    area.addEventListener('click', () => {
+      const content = area.getAttribute('data-info'); // Get info text
+      showModal(content);
+    });
+  });
+
+  // Close modal on clicking outside or close button
+  document.getElementById('infoModalClose').addEventListener('click', closeModal);
+  window.addEventListener('click', (event) => {
+    const modal = document.getElementById('infoModal');
+    if (event.target === modal) closeIModal();
+  });
+
 
   // Click event for each area
   areas.forEach(area => {
