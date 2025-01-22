@@ -11,8 +11,31 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleMute() {
     isMuted = !isMuted;
 
-    setVolume();
+    // setVolume();
+    fadeVolume(audioPlayer, isMuted ? 0 : maxMusicVolume, 1000); // Fade over 1 second
+    fadeVolume(sfxSound, isMuted ? 0 : 1, 1000);
     updateMuteButton();
+  }
+
+
+  // Fade volume function
+  function fadeVolume(audio, targetVolume, duration) {
+    if (!audio) return;
+
+    const step = 50; // Interval step in ms
+    const steps = duration / step; // Total steps
+    const volumeStep = (targetVolume - audio.volume) / steps;
+
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      audio.volume = Math.max(0, Math.min(1, audio.volume + volumeStep)); // Keep volume in range [0, 1]
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        audio.volume = targetVolume; // Ensure exact target volume at the end
+      }
+    }, step);
   }
 
   // Function to set volume based on mute state
