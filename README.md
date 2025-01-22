@@ -42,7 +42,7 @@ Welcome to **Cyber Survivor Island**, a fun and interactive web-based game that 
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/cyber-survivor-island.git
+   git clone https://github.com/ej8899/cyber-survivor-island.git
    cd cyber-survivor-island
    ```
 
