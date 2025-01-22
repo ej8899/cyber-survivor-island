@@ -98,4 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('hidden');
     }
   });
+
+
+  // end of DOM handler
 });
+
+
+

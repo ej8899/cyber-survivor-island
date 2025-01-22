@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet">
 </head>
-<body>
 
+<body>
+  <audio id="audioPlayer" src="./sounds/pirate-music.mp3"></audio>
   
   <div id="game-container">
     <div class="title-wrapper">
@@ -31,6 +32,9 @@
       <div class="map-area" id="market" data-area="Market Scams" style="top: 42%; left: 23%;"></div>
       <div class="map-area" id="deepfakes" data-area="Deep Water Deep Fakes" style="top: 52%; left: 80%;"></div>
       <div class="map-area" id="blackmail" data-area="Blackmail Bluffs" style="top: 18%; left: 10%;"></div>
+      <button onclick="playTrack(0, 139)">Play Track 1</button>
+      <button onclick="playTrack(411, 539)">Play Track 2</button>
+      <button onclick="playTrack(0, 0)">Mute Sounds</button>
     </div>
 
     <!-- Story Modal -->
@@ -48,9 +52,9 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <script src="script.js"></script>
+  <script src="sounds.js"></script>
 </body>
 </html>
