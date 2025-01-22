@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const areaDescription = document.getElementById('area-description');
   const closeModal = document.getElementById('close-modal');
   const startChallenge = document.getElementById('start-challenge');
-  
+
+  const parrotSound = document.getElementById('parrotSound');
 
   const asciiArt = `
 ░█▀▀░▀▀█░█▄█░█▀▀░█▀▄░▀█▀░█▀█░░░░█▀▀░█▀█
@@ -64,6 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
     area.classList.add('incomplete');
     area.addEventListener('click', () => {
       const areaId = area.id;
+
+      // Play the area click sound
+      if (parrotSound) {
+        parrotSound.currentTime = 0; // Reset to the start
+        parrotSound.play().catch(err => {
+          console.error("Error playing parrot sound:", err);
+        });
+      }
 
       // Show modal with the area's story
       areaTitle.textContent = areaStories[areaId].title;

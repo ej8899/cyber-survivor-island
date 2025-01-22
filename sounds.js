@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Define the playTrack function globally
 function playTrack(startTime, endTime) {
   console.log("playTrack called with startTime:", startTime, "endTime:", endTime);
-  reduceVolumeTo(55); 
+  reduceVolumeTo(45); 
 
   if(startTime === 0 && endTime === 0) {
       reduceVolumeTo(0)
