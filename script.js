@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const startChallenge = document.getElementById('start-challenge');
   const infoAreas = document.querySelectorAll('.map-area.info');
 
+  // Handle Credits Button
+  const creditsButton = document.getElementById('creditsButton');
+  const creditsModal = document.getElementById('creditsModal');
+  const closeCreditsButton = document.getElementById('closeCreditsButton');
+
   const instructionsModal = document.getElementById('instructionsModal');
   const closeInstructionsButton = document.getElementById('closeInstructionsButton');
 
@@ -118,9 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close modal on clicking outside or close button
   document.getElementById('infoModalClose').addEventListener('click', closeIModal);
   window.addEventListener('click', (event) => {
-    console.log("clicked close on info modal")
     const modal = document.getElementById('infoModal');
-    if (event.target === modal) closeIModal();
+  
+    // Ensure only clicks outside of the modal trigger close
+    if (event.target === modal) {
+      closeIModal();
+    }
   });
 
 
@@ -244,6 +252,20 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(triggerRandomRotation, nextInterval);
   }
   triggerRandomRotation();
+
+  // Open Credits Modal
+  creditsButton.addEventListener('click', () => {
+    if (creditsModal) {
+      creditsModal.style.display = 'flex';
+    }
+  });
+
+  // Close Credits Modal
+  closeCreditsButton.addEventListener('click', () => {
+    if (creditsModal) {
+      creditsModal.style.display = 'none';
+    }
+  });
 
   // end of DOM handler
 });

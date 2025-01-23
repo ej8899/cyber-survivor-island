@@ -690,7 +690,8 @@ button:active {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
-#closeInstructionsButton {
+#closeInstructionsButton,
+#closeCreditsButton {
   font-family: "Caveat Brush", serif;
   font-weight: normal;
   font-size: 18px;
@@ -705,11 +706,38 @@ button:active {
   transition: transform 0.2s, background 0.2s;
 }
 
-#closeInstructionsButton:hover {
+#closeInstructionsButton:hover,
+#closeCreditsButton:hover {
   background: #005f99; /* Darker blue on hover */
   transform: rotate(1deg) scale(1.05); /* Slight zoom effect */
 }
 
 #infoModalContent {
   padding: 10px;
+}
+
+
+
+/* Credits Modal Background */
+/* Modal Background */
+#creditsModal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Allow interaction */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#creditsModal.hidden {
+  opacity: 0; /* Fully transparent */
+  visibility: hidden; /* Prevent interaction */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
