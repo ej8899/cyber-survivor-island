@@ -124,36 +124,49 @@ document.addEventListener('DOMContentLoaded', () => {
     area.addEventListener('click', () => {
       const areaId = area.id;
 
-      // Play the area click sound
-      if (sfxSound) {
-        let playCount = 0;
+      if (area.classList.contains('info')) {
+        // Handle info modal
+        console.log(`INFO area clicked: ${areaId}`);
+        const infoData = area.dataset.info;
+        if (infoData) {
+          showInfoModal(infoData); // Custom function to show the info modal
+        } else {
+          console.error(`Missing info data for area: ${area.id}`);
+        }
+      } else {
+        console.log("Game area clicked:", areaId);
+          // Play the area click sound
+        if (sfxSound) {
+          let playCount = 0;
 
-        // Function to play the sfx sound and track count
-        const playSfxSound = () => {
-          playCount++;
-          sfxSound.currentTime = 0;
-          sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
-          console.log(`Sfx sound played ${playCount} times.`);
-          if (playCount < 2) {
-            sfxSound.onended = playSfxSound; // Play again when the first play ends
-          } else {
-            sfxSound.onended = null; // Remove the event listener after the second play
-          }
-        };
+          // Function to play the sfx sound and track count
+          const playSfxSound = () => {
+            playCount++;
+            sfxSound.currentTime = 0;
+            sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
+            console.log(`Sfx sound played ${playCount} times.`);
+            if (playCount < 2) {
+              sfxSound.onended = playSfxSound; // Play again when the first play ends
+            } else {
+              sfxSound.onended = null; // Remove the event listener after the second play
+            }
+          };
 
-        playSfxSound(); // Start the first play
+          playSfxSound(); // Start the first play
+        }
+        // Show modal with the area's story
+        // console.log(`No story found for area: ${areaId}`);
+  
+        areaTitle.textContent = areaStories[areaId].title;
+        areaDescription.textContent = areaStories[areaId].description;
+
+        // Store the active area's ID on the modal for reference
+        modal.dataset.activeArea = areaId;
+        console.log(`Active area set to: ${areaId}`);
+
+        // Show the modal
+        modal.classList.remove('hidden');
       }
-
-      // Show modal with the area's story
-      areaTitle.textContent = areaStories[areaId].title;
-      areaDescription.textContent = areaStories[areaId].description;
-
-      // Store the active area's ID on the modal for reference
-      modal.dataset.activeArea = areaId;
-      console.log(`Active area set to: ${areaId}`);
-
-      // Show the modal
-      modal.classList.remove('hidden');
     });
   });
 
@@ -161,6 +174,19 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModal.addEventListener('click', () => {
     modal.classList.add('hidden');
   });
+
+  function showInfoModal(infoContent) {
+    const modal = document.getElementById('infoModal');
+    const modalContent = document.getElementById('infoModalContent');
+  
+    if (modal && modalContent) {
+      modalContent.textContent = infoContent; // Display the info content
+      modal.style.display = 'block'; // Show the modal
+    } else {
+      console.error('Info modal elements not found!');
+    }
+  }
+  
 
   // Start challenge
   startChallenge.addEventListener('click', () => {
@@ -175,11 +201,19 @@ document.addEventListener('DOMContentLoaded', () => {
       areaElement.classList.add('completed');
       
       // Update progress bar
-      completedProgress++;
-      const progress = Math.round((completedProgress / totalAreas) * 100);
-      progressFill.style.width = `${progress}%`;
-      progressText.textContent = `${progress}%`;
-      console.log(`Progress: ${progress.toFixed(2)}%`);
+      if (!completedAreas.has(areaElement)) {
+        completedAreas.add(areaElement); // Mark the area as completed
+        // areaElement.classList.add('completed'); // Apply completed styling
+
+        // Calculate progress percentage
+        const progress = Math.min(100, Math.round((completedAreas.size / totalAreas) * 100));
+
+        // Update the progress bar and text
+        progressFill.style.width = `${progress}%`;
+        progressText.textContent = `${progress}%`;
+
+        console.log(`Progress: ${progress}%`);
+      }
 
       // Close the modal
       modal.classList.add('hidden');
