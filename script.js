@@ -1,4 +1,4 @@
-let isMuted = true;
+let isMuted = false;
 let musicVolume = 0;    // 0-1 (0=muted)
 let maxMusicVolume = .25;
 let soundVolume = 0;
