@@ -40,8 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close the modal when the button is clicked
   closeInstructionsButton.addEventListener('click', () => {
-    playTrack(0, 139);
-    instructionsModal.style.display = 'none';
+    instructionsModal.classList.add('hidden'); // Add the fade-out class
+
+    // Start the music after the fade-out transition
+    setTimeout(() => {
+      instructionsModal.style.display = 'none'; // Ensure modal is removed after fading
+      playTrack(0, 139); // Start the music
+    }, 500); // Match the transition duration (0.5s)
   });
 
   // Predefined stories for areas
@@ -93,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContent = document.getElementById('infoModalContent');
     
     modalContent.textContent = content; // Set modal content
-    modal.style.display = 'block'; // Show the modal
+    modal.style.display = 'flex'; // Show the modal
   }
 
   // Close the modal
@@ -111,8 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Close modal on clicking outside or close button
-  document.getElementById('infoModalClose').addEventListener('click', closeModal);
+  document.getElementById('infoModalClose').addEventListener('click', closeIModal);
   window.addEventListener('click', (event) => {
+    console.log("clicked close on info modal")
     const modal = document.getElementById('infoModal');
     if (event.target === modal) closeIModal();
   });
@@ -181,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     if (modal && modalContent) {
       modalContent.textContent = infoContent; // Display the info content
-      modal.style.display = 'block'; // Show the modal
+      modal.style.display = 'flex'; // Show the modal
     } else {
       console.error('Info modal elements not found!');
     }
