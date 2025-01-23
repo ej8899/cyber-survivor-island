@@ -102,3 +102,5 @@ Label: Epic Music World
 Album: Treasure Island (EP)
 Year: 2022
 ©℗: 2022 Epic Music World Label
+
+Fonts: Google Fonts (Caveat Brush)
