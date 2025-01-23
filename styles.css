@@ -486,7 +486,7 @@ button:active {
 
 
 /* Modal Background */
-.modal {
+.modal-info {
   display: none; /* Hidden by default */
   position: fixed;
   z-index: 100; /* On top of other elements */
@@ -496,33 +496,65 @@ button:active {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 400px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.modal-info-content {
+  background: linear-gradient(135deg, #0077be, #00c853); /* Tropical gradient */
+  border: 4px solid #ffd700; /* Gold border */
+  border-radius: 15px;
+  padding: 10px;
+  padding-left: 0px;
+  margin: 10px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  font-family: "Caveat Brush", serif;
+  font-weight: normal;
+  font-size: 22px;
+  color: #292727; /* White text for contrast */
+  position: relative; /* Ensure the image can be positioned outside */
+  overflow: visible; /* Allow content to spill outside */
 }
 
 /* Close Button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
+  position: absolute; /* Position within the modal */
+  top: 10px; /* Adjust as needed */
+  right: 15px; /* Adjust as needed */
+  color: #2c3e50; /* Neutral text color */
+  background: #ecf0f1; /* Light button background */
+  border: none; /* Remove default border */
+  border-radius: 50%; /* Circular close button */
+  font-size: 20px; /* Adjust size */
   font-weight: bold;
+  width: 30px; /* Equal width and height for a circular button */
+  height: 30px;
   cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out; /* Smooth hover effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.close:hover,
+/* Close Button Hover Effect */
+.close:hover {
+  background: #e74c3c; /* Change to a red color on hover */
+  color: white; /* White icon for better contrast */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Close Button Focus Effect */
 .close:focus {
-  color: black;
-  text-decoration: none;
+  outline: 2px solid #3498db; /* Highlight outline for accessibility */
 }
 
 .map-area.info {
@@ -555,6 +587,15 @@ button:active {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Allow interaction */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#instructionsModal.hidden {
+  opacity: 0; /* Fully transparent */
+  visibility: hidden; /* Prevent interaction */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 /* Modal Content */
@@ -667,4 +708,8 @@ button:active {
 #closeInstructionsButton:hover {
   background: #005f99; /* Darker blue on hover */
   transform: rotate(1deg) scale(1.05); /* Slight zoom effect */
+}
+
+#infoModalContent {
+  padding: 10px;
 }
