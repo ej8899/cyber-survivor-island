@@ -32,6 +32,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressFill = document.getElementById('progressFill');
   const progressText = document.getElementById('progressText');
   const totalAreas = document.querySelectorAll('.map-area:not(.info').length;
+
+  const infoAreaData = [
+    { top: '30%', left: '75%' },
+    { top: '50%', left: '20%' },
+    { top: '10%', left: '20%' },
+    // Add more positions as needed
+  ];
+  const mapContainer = document.getElementById('map'); // Replace with the container ID for your map
+
+
+
   // const gameAreas = document.querySelectorAll('.map-area:not(.info)').length;
   let completedProgress = 0;
 
@@ -97,6 +108,53 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
+  const tips = [
+    "Always verify the sender's email address to spot phishing attempts!",
+    "Always use two-factor authentication (2FA) for extra account security!",
+    "Data backups are important to protect against ransomware. Any less than 3 copies of your data is NOT a backup!",
+    "Strong passwords should include a mix of uppercase, lowercase, numbers, and symbols!",
+    "Be cautious of links in unexpected emails or messages—they might be phishing attempts.",
+  ];
+  
+  infoAreaData.forEach(position => {
+    // Generate a random tip and a unique ID
+    const randomTip = tips[Math.floor(Math.random() * tips.length)];
+    const uniqueId = generateGUID();
+
+    // Create a new div for the info area
+    const infoArea = document.createElement('div');
+    infoArea.className = 'map-area info';
+    infoArea.id = uniqueId;
+    infoArea.setAttribute('data-area', 'quick tip!');
+    infoArea.setAttribute('data-info', randomTip);
+
+    // Position the area
+    infoArea.style.top = position.top;
+    infoArea.style.left = position.left;
+
+    // Attach the click handler
+    infoArea.addEventListener('click', () => {
+      const content = infoArea.getAttribute('data-info'); // Get the info text
+      if (!completedAreas.has(uniqueId)) {
+        completedAreas.add(uniqueId); // Mark the area as completed
+        updateProgressBar(); // Update progress
+      }
+      showInfoModal(content); // Show the info modal
+    });
+
+    // Append to the map container
+    mapContainer.appendChild(infoArea);
+  });
+
+  function generateGUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+      const r = (Math.random() * 16) | 0;
+      const v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  }
+  
+
   // Track completed areas
   const completedAreas = new Set();
 
@@ -115,13 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'none';
   };
 
-  // Attach event listeners to informational map areas
-  infoAreas.forEach(area => {
-    area.addEventListener('click', () => {
-      const content = area.getAttribute('data-info'); // Get info text
-      showModal(content);
-    });
-  });
+
 
   // Close modal on clicking outside or close button
   document.getElementById('infoModalClose').addEventListener('click', closeIModal);
@@ -146,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (debug==true) console.log(`INFO area clicked: ${areaId}`);
         const infoData = area.dataset.info;
         if (infoData) {
-          showInfoModal(infoData); // Custom function to show the info modal
+          showInfoModal(infoData);
         } else {
           if (debug==true) console.error(`Missing info data for area: ${area.id}`);
         }
@@ -223,21 +275,9 @@ document.addEventListener('DOMContentLoaded', () => {
       areaElement.classList.remove('incomplete');
       areaElement.classList.add('completed');
       
-      // Update progress bar
-      if (!completedAreas.has(areaElement)) {
-        completedAreas.add(areaElement); // Mark the area as completed
-        // areaElement.classList.add('completed'); // Apply completed styling
-
-        // Calculate progress percentage
-        const progress = Math.min(100, Math.round((completedAreas.size / totalAreas) * 100));
-
-        // Update the progress bar and text
-        progressFill.style.width = `${progress}%`;
-        progressText.textContent = `${progress}%`;
-
-        if (debug==true) console.log(`Progress: ${progress}%`);
-      }
-
+      completedAreas.add(areaElement); // Mark the area as completed
+      updateProgressBar();
+      // area.setAttribute('data-area', area.getAttribute('data-area'));
       // Close the modal
       modal.classList.add('hidden');
     }
@@ -275,6 +315,23 @@ document.addEventListener('DOMContentLoaded', () => {
       creditsModal.style.display = 'none';
     }
   });
+
+
+// Update progress bar
+  function updateProgressBar() {
+    const totalAreas = document.querySelectorAll('.map-area').length;
+    const progress = Math.min(100, Math.round((completedAreas.size / totalAreas) * 100));
+
+    // Update the progress bar and text
+    progressFill.style.width = `${progress}%`;
+    progressText.textContent = `${progress}%`;
+
+    if (debug==true) console.log(`Progress: ${progress}%`);
+
+    if (progress >= 100) {
+      console.log("WIN condition met")
+    }
+  }
 
   // end of DOM handler
 });
