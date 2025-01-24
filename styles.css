@@ -175,15 +175,43 @@ body {
 
 .map-area.completed {
   background-color: rgba(0, 255, 0, 0.6); /* Green for completed areas */
+  pointer-events: auto;
 }
 
-.map-area.completed::after {
+.map-area.completed::before {
   content: '';
   display: block;
   width: 100%;
   height: 100%;
   background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
+}
+
+.map-area.completed::after {
+  content: attr(data-area); /* Tooltip text */
+  position: absolute;
+  bottom: 95%; /* Position above the area */
+  left: 50%;
+  transform: translateX(-50%) rotate(-5.5deg);
+  background: #0077be;
+  color: #fff;
+  font-family: "Caveat Brush", serif;
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid black;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.map-area.completed:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px) rotate(3deg);
 }
 
 .map-area.incomplete::after {
@@ -204,7 +232,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  z-index: 10; /* Above magnifying glass */
+  z-index: 10;
 }
 
 /* Tooltip Tail */
