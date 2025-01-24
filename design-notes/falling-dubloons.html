@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling Dubloons</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #282c34;
+        }
+
+        .dubloon {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background-image: url('dubloon.webp');
+            background-size: cover;
+            animation: fall 2s linear forwards, rotate 2s linear forwards;
+            animation-delay: var(--delay); /* Delays start of animation */
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                top: calc(100vh - var(--size));
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(var(--rotation));
+            }
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function createDubloons(count) {
+        for (let i = 0; i < count; i++) {
+            const dubloon = document.createElement('div');
+            dubloon.classList.add('dubloon');
+
+            // Randomize position, size, rotation, and delay
+            const size = Math.random() * 40 + 20; // Sizes between 20px and 60px
+            const rotation = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 360); // Clockwise or counterclockwise
+            const delay = Math.random() * 2 + "s"; // Random delay between 0 and 2 seconds
+
+            dubloon.style.setProperty('--rotation', `${rotation}deg`);
+            dubloon.style.setProperty('--delay', delay);
+            dubloon.style.setProperty('--size', `${size}px`);
+            dubloon.style.width = `${size}px`;
+            dubloon.style.height = `${size}px`;
+            dubloon.style.left = `${Math.random() * window.innerWidth}px`;
+
+            console.log(`Creating dubloon: size=${size}, rotation=${rotation}, delay=${delay}`); // Debug log
+
+            document.body.appendChild(dubloon);
+        }
+    }
+
+    // Start animation
+    createDubloons(50);
+</script>
+</body>
+</html>
