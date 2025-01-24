@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const skullAndBones = document.getElementById('skull-and-bones');
 
   const sfxSound = document.getElementById('sfxSound');
+  const goldSound = document.getElementById('goldSound');
 
   const progressFill = document.getElementById('progressFill');
   const progressText = document.getElementById('progressText');
@@ -198,6 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal && modalContent) {
       modalContent.textContent = infoContent; // Display the info content
       modal.style.display = 'flex'; // Show the modal
+      if (!isMuted && goldSound) {
+        goldSound.currentTime = 0; 
+        goldSound.play().catch(err => {
+          if (debug === true) console.warn('Error playing sound:', err);
+        });
+      }
     } else {
       if (debug==true) console.error('Info modal elements not found!');
     }
