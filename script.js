@@ -342,13 +342,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set random delay and visibility duration
     const randomDelay = Math.random() * (50000 - 20000) + 20000; // Random delay between 20 and 50 seconds
-    const randomDuration = Math.random() * (30000 - 10000) + 10000; // Random visible duration between 10 and 30 seconds
+    const randomDuration = Math.random() * (20000 - 5000) + 5000; // Random visible duration between 5 and 20 seconds
 
     if (debug == true) console.log("mouse details: delay: " + parseInt(randomDelay/1000) + "s -- duration:" + parseInt(randomDuration/1000) +"s");
     // Schedule to show the graphic
     setTimeout(() => {
       mouseGraphic.style.opacity = '1'; // Fade in
       if (!isMuted && mouseSound) {
+        // mouseSound.volume = soundVolume * 0.8;
         mouseSound.currentTime = 0; 
         mouseSound.play().catch(err => {
           if (debug === true) console.warn('Error playing mouse sound:', err);
