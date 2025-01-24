@@ -34,10 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressText = document.getElementById('progressText');
   const totalAreas = document.querySelectorAll('.map-area:not(.info').length;
 
+  // Track completed areas
+  const completedAreas = new Set();
+  const usedTips = new Set();
+
   const infoAreaData = [
     { top: '30%', left: '75%' },
     { top: '50%', left: '20%' },
     { top: '10%', left: '20%' },
+    { top: '60%', left: '44%' },
     // Add more positions as needed
   ];
   const mapContainer = document.getElementById('map'); // Replace with the container ID for your map
@@ -118,8 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   
   infoAreaData.forEach(position => {
-    // Generate a random tip and a unique ID
-    const randomTip = tips[Math.floor(Math.random() * tips.length)];
+    let randomTip;
+
+    // Ensure the tip is unique
+    do {
+      randomTip = tips[Math.floor(Math.random() * tips.length)];
+    } while (usedTips.has(randomTip));
+  
+    usedTips.add(randomTip);
+
     const uniqueId = generateGUID();
 
     // Create a new div for the info area
@@ -156,8 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
 
-  // Track completed areas
-  const completedAreas = new Set();
+
 
   // Function to show modal
   function showModal(content) {
@@ -269,7 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeArea = modal.dataset.activeArea;
 
     if (activeArea) {
-      alert(`Starting challenge for ${areaStories[activeArea].title}...`);
+      // Load the mini-game
+      loadMiniGame(areaStories[activeArea].title);
 
       // Mark the area as completed (visual feedback)
       const areaElement = document.getElementById(activeArea);
@@ -327,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progressFill.style.width = `${progress}%`;
     progressText.textContent = `${progress}%`;
 
-    if (debug==true) console.log(`Progress: ${progress}%`);
+    if (debug==true) console.log(`Progress: ${progress}% (${completedAreas.size} of ${totalAreas} areas)`);
 
     if (progress >= 100) {
       console.log("WIN condition met")
@@ -366,6 +378,41 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start the random appearance/disappearance
   toggleMouseGraphic();
 
+
+
+  function loadMiniGame(gameTitle) {
+    console.log("Loading mini-game:", gameTitle);
+
+    // set new BG
+    showFullScreenImage('./graphics/bg-phishing-cove.webp');
+
+    // open info modal
+
+    // open challenge Modal
+
+    // open exit info Modal
+
+    // reset the BG
+    // hideFullScreenImage();
+  }
+
+  function showFullScreenImage(imagePath) {
+    const overlay = document.getElementById('full-screen-overlay');
+    const image = document.getElementById('full-screen-image');
+    image.src = imagePath; // Set the new image
+    overlay.style.display = 'flex'; // Show the overlay
+  }
+
+  function hideFullScreenImage() {
+      const overlay = document.getElementById('full-screen-overlay');
+      overlay.style.display = 'none'; // Hide the overlay
+  }
+
+  // TEMP - click to dismiss the mini game screen
+  document.getElementById('full-screen-overlay').addEventListener('click', () => {
+    hideFullScreenImage();
+    // enableGameInteraction();
+});
   // end of DOM handler
 });
 
