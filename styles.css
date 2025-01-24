@@ -99,6 +99,20 @@ body {
   top:30px;
 }
 
+#banner-logo {
+  max-height: 280px; /* Adjust to your preferred size */
+  margin-right: 0px; /* Add spacing between the logo and text */
+  transform: rotate(7deg); /* Optional: give it a playful tilt */
+
+  position: absolute;
+  top: -115px; /* Adjust as needed */
+  left: 760px; /* Adjust as needed */
+
+  height: auto; /* Maintain aspect ratio */
+  z-index: 10; /* Ensure it stays above other elements */
+  pointer-events: auto; /* Allow hover interactions */
+}
+
 
 
 .map-area {
@@ -612,7 +626,7 @@ button:active {
   /* border-right: 3px solid #ffd700;
   padding-right: 10px; */
   position: relative; /* Position relative for absolute positioning of the image */
-  transform: translate(-4%, 8%); /* Move the image outside the modal */
+  transform: translate(-8%, 12%); /* Move the image outside the modal */
   z-index: 1; /* Ensure the image is layered correctly */
 }
 
