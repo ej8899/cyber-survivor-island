@@ -115,6 +115,13 @@ body {
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
 }
 
+#mouse-graphic {
+  position: absolute;
+  top: 595px;
+  left: 902px;
+  height: 55px;
+  /* display: none; */
+}
 
 
 .map-area {
@@ -704,4 +711,14 @@ button:active {
   opacity: 0; /* Fully transparent */
   visibility: hidden; /* Prevent interaction */
   transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.noscript-warning {
+  background-color: #ffcc00;
+  color: #333;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #ff9900;
+  border-radius: 8px;
 }
