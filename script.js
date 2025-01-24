@@ -4,6 +4,8 @@ let maxMusicVolume = .25;
 let soundVolume = 0;
 let maxSoundVolume = 1;
 
+let debug = true;
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const areas = document.querySelectorAll('.map-area');
@@ -140,15 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (area.classList.contains('info')) {
         // Handle info modal
-        console.log(`INFO area clicked: ${areaId}`);
+        if (debug==true) console.log(`INFO area clicked: ${areaId}`);
         const infoData = area.dataset.info;
         if (infoData) {
           showInfoModal(infoData); // Custom function to show the info modal
         } else {
-          console.error(`Missing info data for area: ${area.id}`);
+          if (debug==true) console.error(`Missing info data for area: ${area.id}`);
         }
       } else {
-        console.log("Game area clicked:", areaId);
+        if (debug==true) console.log("Game area clicked:", areaId);
           // Play the area click sound
         if (sfxSound) {
           let playCount = 0;
@@ -158,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playCount++;
             sfxSound.currentTime = 0;
             sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
-            console.log(`Sfx sound played ${playCount} times.`);
+            if (debug==true) console.log(`Sfx sound played ${playCount} times.`);
             if (playCount < 2) {
               sfxSound.onended = playSfxSound; // Play again when the first play ends
             } else {
@@ -176,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Store the active area's ID on the modal for reference
         modal.dataset.activeArea = areaId;
-        console.log(`Active area set to: ${areaId}`);
+        if (debug==true) console.log(`Active area set to: ${areaId}`);
 
         // Show the modal
         modal.classList.remove('hidden');
@@ -197,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalContent.textContent = infoContent; // Display the info content
       modal.style.display = 'flex'; // Show the modal
     } else {
-      console.error('Info modal elements not found!');
+      if (debug==true) console.error('Info modal elements not found!');
     }
   }
   
@@ -226,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         progressFill.style.width = `${progress}%`;
         progressText.textContent = `${progress}%`;
 
-        console.log(`Progress: ${progress}%`);
+        if (debug==true) console.log(`Progress: ${progress}%`);
       }
 
       // Close the modal
