@@ -13,9 +13,16 @@
 </head>
 
 <body>
+  <noscript>
+    <div class="noscript-warning">
+      JavaScript is required to run this game. Please enable JavaScript in your browser settings.
+    </div>
+  </noscript>
+  
   <audio id="audioPlayer" src="./sounds/pirate-music.mp3"></audio>
   <audio id="sfxSound" src="./sounds/parrot-5.wav"></audio>
   <audio id="goldSound" src="./sounds/gold-10.wav"></audio>
+  <audio id="mouseSound" src="./sounds/mouse-6.wav"></audio>
 
   <div id="game-container">
     <div class="title-wrapper">
@@ -28,6 +35,8 @@
       <img src="./graphics/cyber-survivor-map.webp" alt="Cyber Survivor Island" id="island-map">
       <img src="./graphics/skull-and-bones.webp" alt="Skull and Bones" id="skull-and-bones">
       <img src="./graphics/csi-logo.webp" alt="Cyber Survivor Island" id="banner-logo">
+      <img src="./graphics/mouse-mini.webp" alt="mouse" id="mouse-graphic">
+
       <!-- Clickable Areas -->
       <div class="map-area incomplete" id="phishing" data-area="The Phishing Lagoon"  style="top: 40%; left: 45%;"></div>
       <div class="map-area incomplete" id="jungle" data-area="Social Media Scam Safari"  style="top: 15%; left: 60%;"></div>
