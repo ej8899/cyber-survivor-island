@@ -120,6 +120,7 @@ body {
   top: 595px;
   left: 902px;
   height: 55px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
   /* display: none; */
 }
 
