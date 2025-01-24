@@ -600,12 +600,14 @@ button:active {
   border: 4px solid #ffd700; /* Gold border */
   border-radius: 15px;
   padding: 10px;
-  padding-left: 0px;
+  padding-left: 120px;
   margin-left: 0px;
-  width: 70%;
-  max-width: 800px;
+  /* width: 70%; */
+  max-width: 700px;
+  min-width: 500px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   font-family: "Caveat Brush", serif;
@@ -628,10 +630,10 @@ button:active {
   /* border-right: 3px solid #ffd700;
   padding-right: 10px; */
   width: 280px;
-  position: relative; /* Position relative for absolute positioning of the image */
-  transform: translate(-8%, 12%);
-  /* left: -30px;
-  bottom: -30px; */
+  position: absolute; /* Position relative for absolute positioning of the image */
+  /* transform: translate(-8%, 12%); */
+  left: -30px;
+  bottom: -30px;
   z-index: 1; /* Ensure the image is layered correctly */
 }
 
@@ -650,7 +652,7 @@ button:active {
 /* Text Section */
 .instructions-modal-text {
   flex: 2;
-  padding-left: 20px;
+  padding-left: 130px;
   color: #272525;
   font-family: "Caveat Brush", serif;
 }
