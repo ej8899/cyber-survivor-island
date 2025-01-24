@@ -121,9 +121,12 @@ body {
   left: 902px;
   height: 55px;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
-  /* display: none; */
+  opacity: 0; /* Start hidden */
+  transition: opacity 1s ease-in-out, filter 0.3s ease-in-out; 
 }
-
+#mouse-graphic:hover {
+  filter: drop-shadow(0 4px 6px rgba(173, 255, 47, 0.8));
+}
 
 .map-area {
   position: absolute;

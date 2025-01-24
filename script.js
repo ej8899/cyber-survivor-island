@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sfxSound = document.getElementById('sfxSound');
   const goldSound = document.getElementById('goldSound');
+  const mouseSound = document.getElementById('mouseSound');
 
   const progressFill = document.getElementById('progressFill');
   const progressText = document.getElementById('progressText');
@@ -332,6 +333,37 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("WIN condition met")
     }
   }
+
+
+  // Function to toggle the mouse graphic visibility
+  function toggleMouseGraphic() {
+    const mouseGraphic = document.getElementById('mouse-graphic');
+    if (!mouseGraphic) return;
+
+    // Set random delay and visibility duration
+    const randomDelay = Math.random() * (50000 - 20000) + 20000; // Random delay between 20 and 50 seconds
+    const randomDuration = Math.random() * (30000 - 10000) + 10000; // Random visible duration between 10 and 30 seconds
+
+    if (debug == true) console.log("mouse details: delay: " + parseInt(randomDelay/1000) + "s -- duration:" + parseInt(randomDuration/1000) +"s");
+    // Schedule to show the graphic
+    setTimeout(() => {
+      mouseGraphic.style.opacity = '1'; // Fade in
+      if (!isMuted && mouseSound) {
+        mouseSound.currentTime = 0; 
+        mouseSound.play().catch(err => {
+          if (debug === true) console.warn('Error playing mouse sound:', err);
+        });
+      }
+      // Schedule to hide the graphic
+      setTimeout(() => {
+        mouseGraphic.style.opacity = '0'; // Fade out
+        toggleMouseGraphic(); // Repeat the process
+      }, randomDuration);
+    }, randomDelay);
+  }
+
+  // Start the random appearance/disappearance
+  toggleMouseGraphic();
 
   // end of DOM handler
 });
