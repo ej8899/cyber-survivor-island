@@ -40,7 +40,7 @@ body {
 }
 
 #phishing {
-  top: 300px;
+  top: 420px;
   left: 450px;
 }
 
@@ -350,9 +350,6 @@ body {
   z-index: 1000;
 }
 
-.hidden {
-  display: none !important;
-}
 
 /* Modal box */
 .modal-container {
@@ -826,10 +823,27 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease-in-out; 
 }
 
 #full-screen-image {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0; /* Initially hidden */
+  animation: fadeIn 1s ease-in-out forwards; 
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+.hidden-overlay {
+  opacity: 0; /* Fade out to invisible */
+  pointer-events: none; /* Ensure no interaction while hidden */
+}
