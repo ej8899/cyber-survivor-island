@@ -19,7 +19,7 @@ body {
 }
 
 #game-container {
-  position: relative;
+  position: absolute;
   height: 100vh;
   overflow: hidden;
   width: 100%;
@@ -29,6 +29,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  aspect-ratio: 16/9;
   max-width: 1000px; /* Optional: set a max size for the map */
   margin: 0 auto;
 }
@@ -36,6 +37,51 @@ body {
 #island-map {
   width: 100%;
   height: auto;
+}
+
+#phishing {
+  top: 300px;
+  left: 450px;
+}
+
+#jungle {
+  top: 150px;
+  left: 600px;
+}
+
+#volcano {
+  top: 260px;
+  left: 860px;
+}
+
+#passwords {
+  top: 240px;
+  left: 760px;
+}
+
+#darkweb {
+  top: 540px;
+  left: 40px;
+}
+
+#shipwreck {
+  top: 640px;
+  left: 240px;
+}
+
+#market {
+  top: 420px;
+  left: 230px;
+}
+
+#deepfakes {
+  top: 520px;
+  left: 800px;
+}
+
+#blackmail {
+  top: 180px;
+  left: 100px;
 }
 
 .game-title {

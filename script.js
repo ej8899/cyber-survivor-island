@@ -39,11 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const usedTips = new Set();
 
   const infoAreaData = [
-    { top: '30%', left: '75%' },
-    { top: '50%', left: '20%' },
-    { top: '10%', left: '20%' },
-    { top: '60%', left: '44%' },
-    // Add more positions as needed
+    { top: '200px', left: '800px' }, 
+    { top: '337px', left: '240px' }, 
+    { top: '67px', left: '240px' },
+    { top: '405px', left: '528px' },
   ];
   const mapContainer = document.getElementById('map'); // Replace with the container ID for your map
 
