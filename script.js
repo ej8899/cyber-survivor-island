@@ -364,6 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (progress >= 100) {
       console.log("WIN condition met")
+      createDubloons(70, 100, window.innerWidth - 100);
     }
   }
 
