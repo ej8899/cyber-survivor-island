@@ -120,12 +120,28 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const tips = [
-    "Always verify the sender's email address to spot phishing attempts!",
-    "Always use two-factor authentication (2FA) for extra account security!",
-    "Data backups are important to protect against ransomware. Any less than 3 copies of your data is NOT a backup!",
-    "Strong passwords should include a mix of uppercase, lowercase, numbers, and symbols!",
-    "Be cautious of links in unexpected emails or messages—they might be phishing attempts.",
+    {
+      tip: "Always verify the sender's email address to spot phishing attempts!",
+      imageUrl: "./images/phishing-tip.png", // Replace with the actual image path
+    },
+    {
+      tip: "Always use two-factor authentication (2FA) for extra account security!",
+      imageUrl: "./images/2fa-tip.png", // Replace with the actual image path
+    },
+    {
+      tip: "Data backups are important to protect against ransomware. Any less than 3 copies of your data is NOT a backup!",
+      imageUrl: "./images/backup-tip.png", // Replace with the actual image path
+    },
+    {
+      tip: "Strong passwords should include a mix of uppercase, lowercase, numbers, and symbols!",
+      imageUrl: "./images/password-tip.png", // Replace with the actual image path
+    },
+    {
+      tip: "Be cautious of links in unexpected emails or messages—they might be phishing attempts.",
+      imageUrl: "./images/suspicious-link.png", // Replace with the actual image path
+    },
   ];
+  
   
   infoAreaData.forEach(position => {
     let randomTip;
@@ -157,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         completedAreas.add(uniqueId); // Mark the area as completed
         updateProgressBar(); // Update progress
       }
-      showInfoModal(content); // Show the info modal
+      showInfoModal(randomTip.tip, randomTip.imageUrl); // Show the info modal
     });
 
     // Append to the map container
@@ -261,10 +277,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.add('hidden');
   });
 
-  function showInfoModal(infoContent) {
+  function showInfoModal(infoContent,imageUrl) {
     const modal = document.getElementById('infoModal');
     const modalContent = document.getElementById('infoModalContent');
-  
+  console.log(imageUrl)
     if (modal && modalContent) {
       modalContent.textContent = infoContent; // Display the info content
       modal.style.display = 'flex'; // Show the modal
