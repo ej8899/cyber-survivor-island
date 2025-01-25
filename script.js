@@ -381,7 +381,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Schedule to show the graphic
     setTimeout(() => {
       mouseGraphic.style.opacity = '1'; // Fade in
-      if (!isMuted && mouseSound) {
+        // no mouse noise if game area active
+      const overlay = document.getElementById('full-screen-overlay');
+    
+      if (!isMuted && mouseSound && overlay.style.display == 'none') {
         // mouseSound.volume = soundVolume * 0.8;
         mouseSound.currentTime = 0; 
         mouseSound.play().catch(err => {
@@ -426,7 +429,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function hideFullScreenImage() {
       const overlay = document.getElementById('full-screen-overlay');
-      overlay.style.display = 'none'; // Hide the overlay
+      overlay.style.display = 'none'; 
   }
 
   // TEMP - click to dismiss the mini game screen
