@@ -78,18 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const areaStories = {
     phishing: {
       title: 'Phishing Cove',
+      background: './graphics/bg-phishing-cove.webp',
       description: 'Spot and avoid dangerous phishing emails to navigate safely!',
     },
     jungle: {
       title: 'Social Media Scam Safari',
+      background: './graphics/bg-scam-safari.webp',
       description: 'Explore the jungle while dodging fake profiles and scammy messages!',
     },
     volcano: {
       title: 'The Vishing Volcano',
+      background: './graphics/bg-volcano.webp',
       description: 'Identify and stop phone scams before they erupt!',
     },
     passwords: {
       title: 'Fortress of Passwords',
+      background: './graphics/bg-passwords.webp',
       description: 'Build strong defenses with unbreakable passwords!',
     },
     darkweb: {
@@ -98,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     shipwreck: {
       title: 'Malware Wreckage',
+      background: './graphics/bg-wreckage.webp',
       description: 'A pirate ship was sunk by malware. Recover its secrets!',
     },
     market: {
@@ -281,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (activeArea) {
       // Load the mini-game
-      loadMiniGame(areaStories[activeArea].title);
+      loadMiniGame(areaStories[activeArea].title,areaStories[activeArea].background);
 
       // Mark the area as completed (visual feedback)
       const areaElement = document.getElementById(activeArea);
@@ -380,11 +385,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  function loadMiniGame(gameTitle) {
+  function loadMiniGame(gameTitle,backgroundImage) {
     console.log("Loading mini-game:", gameTitle);
 
     // set new BG
-    showFullScreenImage('./graphics/bg-phishing-cove.webp');
+    showFullScreenImage(backgroundImage);
 
     // open info modal
 
