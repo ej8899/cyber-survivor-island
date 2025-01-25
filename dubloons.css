@@ -16,7 +16,7 @@
       transform: translateY(0);
   }
   100% {
-      top: calc(100vh - var(--size));
+      top: calc(100vh - 10px - var(--size));
   }
 }
 
