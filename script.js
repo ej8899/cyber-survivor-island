@@ -171,16 +171,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Attach the click handler
     infoArea.addEventListener('click', () => {
       const content = infoArea.getAttribute('data-info'); // Get the info text
+    
       if (!completedAreas.has(uniqueId)) {
         completedAreas.add(uniqueId); // Mark the area as completed
-        updateProgressBar(); // Update progress
+        markInfoAreaCompleted(infoArea)
       }
+    
+      updateProgressBar(); // Update the progress bar
       showInfoModal(randomTip.tip, randomTip.imageUrl); // Show the info modal
     });
 
     // Append to the map container
     mapContainer.appendChild(infoArea);
   });
+
+  function markInfoAreaCompleted(areaElement) {
+    if (areaElement.classList.contains('info')) {
+      areaElement.classList.add('completed');
+      areaElement.style.background = '#008000'; // Darker green for completed
+      areaElement.style.boxShadow = '0 0 20px #008000'; // Updated glow
+      areaElement.setAttribute('data-area', 'completed'); // Update tooltip
+    }
+  }
 
   function generateGUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
@@ -440,7 +452,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('full-screen-overlay').addEventListener('click', () => {
     hideFullScreenImage();
     // enableGameInteraction();
-});
+  });
+
+
   // end of DOM handler
 });
 
@@ -476,7 +490,6 @@ function alertForComputerOnly() {
           </div>
       `;
 
-      // Append the message to the body
       document.body.appendChild(messageContainer);
   }
 }

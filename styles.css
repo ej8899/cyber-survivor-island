@@ -1,3 +1,12 @@
+:root {
+  --gray-50: #f5f7f9; /* Very light gray */
+  --gray-950: #1f2937; /* Dark gray */
+  --yellow-200: #fddf8f; /* Soft yellow */
+  --yellow-350: #eeb23f; /* Medium golden yellow */
+  --yellow-600: #c18500; /* Deep amber */
+}
+
+
 .caveat-brush-regular {
   font-family: "Caveat Brush", serif;
   font-weight: 400;
@@ -16,6 +25,8 @@ body {
   background-repeat: no-repeat; /* Prevents tiling */
   height: 100vh; /* Ensures the body fills the entire viewport */
   margin: 0; /* Removes default margins */
+
+  overflow-y: hidden;
 }
 
 #game-container {
@@ -206,6 +217,8 @@ body {
   font-family: "Caveat Brush", serif;
   color: white;
   font-weight: normal; 
+
+  z-index: 4;
 }
 
 .map-area.info:hover {
@@ -220,6 +233,20 @@ body {
   font-weight: normal; 
 }
 
+/* Completed .info Area with Checkmark */
+.map-area.info.completed {
+  background: #008000BF; /* Darker green for completed state */
+  box-shadow: 0 0 20px #008000; /* Intensified glow for completed state */
+  cursor: default; /* No pointer for completed areas */
+}
+
+.map-area.info.completed::after {
+  content: "found"; /* tool tip */
+  font-size: 14px;
+  color: white;
+  font-weight: lighter;
+}
+
 .map-area.incomplete::before {
   position: absolute;
   content: '';
@@ -229,7 +256,7 @@ body {
   background: url('./graphics/svg/magnifying-glass-search-svgrepo-com.svg') no-repeat center center;
   background-size:cover;
   transition: all 0.3 ease-in-out;
-  z-index: 5;
+  z-index: 4;
 }
 
 .map-area:hover {
@@ -237,7 +264,7 @@ body {
 }
 
 .map-area.completed {
-  background-color: rgba(0, 255, 0, 0.6); /* Green for completed areas */
+  background-color: #008000BF; /* Green for completed areas */
   pointer-events: auto;
 }
 
@@ -268,7 +295,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  z-index: 10;
+  z-index: 101;
 }
 
 .map-area.completed:hover::after {
@@ -295,7 +322,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  z-index: 10;
+  z-index: 101;
 }
 
 /* Tooltip Tail */
@@ -303,6 +330,7 @@ body {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(-5px) rotate(3deg);
+  z-index:10;
 }
 
 .map-area.incomplete:hover::before {
@@ -508,11 +536,17 @@ body {
 .progress-fill {
   height: 100%;
   width: 0%; /* Start at 0% */
-  background: linear-gradient(90deg, #ffcc00, #f4d03f); /* Gold gradient */
+  background: 
+    radial-gradient(circle at bottom right, var(--gray-50) 10%, var(--gray-950) 70%),
+    linear-gradient(0deg, var(--yellow-200) 3.13%, var(--yellow-350) 41.12%, var(--yellow-600) 60.62%, var(--yellow-350) 103.12%);
+  background-size: cover; /* Ensure proper image fit */
+  background-repeat: no-repeat; /* No tiling */
+  background-blend-mode: soft-light, normal;
   border-radius: 15px;
-  box-shadow: 0 0 10px #f4d03f; /* Initial glow */
-  animation: glow 1.5s infinite; /* Apply glowing animation */
-  transition: width 0.5s ease-in-out; /* Smooth expansion */
+  box-shadow: 0 0 10px #f4d03f;
+  animation: glow 1.5s infinite;
+  transition: width 0.5s ease-in-out;
+  border: 2px solid var(--yellow-200);
 }
 
 
@@ -647,22 +681,6 @@ button:active {
 /* Close Button Focus Effect */
 .close:focus {
   outline: 2px solid #3498db; /* Highlight outline for accessibility */
-}
-
-.map-area.info {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #4caf50; /* Green to indicate informational areas */
-  border-radius: 50%;
-  box-shadow: 0 0 10px #4caf50; /* Glow effect */
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.map-area.info:hover {
-  transform: scale(1.2); /* Slightly enlarge on hover */
-  box-shadow: 0 0 20px #4caf50; /* Intensify glow on hover */
 }
 
 
