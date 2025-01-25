@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressText = document.getElementById('progressText');
   const totalAreas = document.querySelectorAll('.map-area:not(.info').length;
 
+  document.addEventListener('DOMContentLoaded', alertForComputerOnly);
+
+
   // Track completed areas
   const completedAreas = new Set();
   const usedTips = new Set();
@@ -429,6 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function hideFullScreenImage() {
       const overlay = document.getElementById('full-screen-overlay');
+      
       overlay.style.display = 'none'; 
   }
 
@@ -439,6 +443,43 @@ document.addEventListener('DOMContentLoaded', () => {
 });
   // end of DOM handler
 });
+
+
+// Function to detect if the user is on a mobile device
+function isMobileDevice() {
+  return /Mobi|Android|iPhone|iPad|iPod|Windows Phone|webOS/i.test(navigator.userAgent);
+}
+
+// Function to display a message if on mobile
+function alertForComputerOnly() {
+  if (isMobileDevice()) {
+      // Create a container for the message
+      const messageContainer = document.createElement('div');
+      messageContainer.style.position = 'fixed';
+      messageContainer.style.top = '0';
+      messageContainer.style.left = '0';
+      messageContainer.style.width = '100%';
+      messageContainer.style.height = '100%';
+      messageContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      messageContainer.style.color = '#fff';
+      messageContainer.style.display = 'flex';
+      messageContainer.style.flexDirection = 'column';
+      messageContainer.style.justifyContent = 'center';
+      messageContainer.style.alignItems = 'center';
+      messageContainer.style.zIndex = '9999';
+      messageContainer.style.textAlign = 'center';
+      messageContainer.innerHTML = `
+          <div style="padding: 20px; max-width: 90%; font-size: 1.2em; line-height: 1.5;">
+              <p>It looks like you're using a mobile device.</p>
+              <p>This experience is designed for a desktop or laptop computer.</p>
+              <p>Please switch to a computer for the best experience.</p>
+          </div>
+      `;
+
+      // Append the message to the body
+      document.body.appendChild(messageContainer);
+  }
+}
 
 
 
