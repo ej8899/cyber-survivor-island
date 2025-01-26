@@ -12,6 +12,7 @@ Welcome to **Cyber Survivor Island**, a fun and interactive web-based game that 
 - [Gameplay Overview](#gameplay-overview)
 - [Contributing](#contributing)
 - [License](#license)
+- [Credits](#credits)
 
 ---
 
@@ -93,7 +94,13 @@ This project is presently licensed under the **MIT License**. See the [LICENSE](
 
 
 ## Credits
-Some icons: https://www.svgrepo.com/
+Game Concept & Design:	Ernie Johnson
+Programming:	Ernie Johnson
+Artwork:	Ernie Johnson
+Sounds:	Gravity Sound Studio
+QA/Testing:	JR
+
+Icons: https://www.svgrepo.com/
 ASCII art: https://www.asciiart.eu/text-to-ascii-art 
 
 Music:
