@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (activeArea) {
       // Load the mini-game
-      loadMiniGame(areaStories[activeArea].title,areaStories[activeArea].background);
+      loadMiniGame(areaStories[activeArea].title,areaStories[activeArea].background,activeArea);
 
       // Mark the area as completed (visual feedback)
       const areaElement = document.getElementById(activeArea);
@@ -420,16 +420,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  function loadMiniGame(gameTitle,backgroundImage) {
-    console.log("Loading mini-game:", gameTitle);
+  function loadMiniGame(gameTitle,backgroundImage,activeArea) {
+    if(debug==true) console.log("Loading mini-game:", gameTitle);
 
     // set new BG
     showFullScreenImage(backgroundImage);
+    
+    // 'load' the active game data
+    const activeGameArea = gameAreas.find(area => area.id === activeArea);
 
     // open info modal
+    if(debug==true) console.log("active game area: " + activeArea);
+    startGame(activeArea);
 
     // open challenge Modal
-
+    if (activeGameArea && activeGameArea.quiz) {
+      console.log(activeGameArea.quiz.question);
+    } else {
+      console.log("Quiz data not found for the active area.");
+    }
     // open exit info Modal
 
     // reset the BG

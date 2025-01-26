@@ -1,0 +1,46 @@
+/* Modal Container */
+#game-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
+
+  font-family: "Caveat Brush", serif;
+}
+
+/* Modal Content */
+#game-modal-content {
+  background: #fff; 
+  padding: 20px;
+  max-width: 500px; 
+  width: 90%; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  text-align: center;
+}
+
+/* Modal Title */
+#game-modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333; 
+}
+
+/* Modal Text */
+#game-modal-text {
+  font-size: 1rem; 
+  margin-bottom: 20px;
+  color: #555; 
+}
+
+/* Quiz Options Section */
+#game-quiz-options button {
+  display: block; 
+  margin: 10px auto; 
+}
