@@ -44,3 +44,32 @@
   display: block; 
   margin: 10px auto; 
 }
+
+
+
+/* Base Quiz Button Styling */
+.quiz-option {
+  position: relative; /* Ensure the icon is positioned relative to the button */
+}
+
+/* Feedback Icon */
+.quiz-icon {
+  position: absolute; /* Position relative to the button */
+  top: -20px;
+  right: -15px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  pointer-events: none; /* Prevent icon from interfering with button clicks */
+  z-index: 1; /* Ensure icon appears above button content */
+}
+
+/* Correct Icon (Green Checkmark) */
+.correct-icon {
+  color: green; /* Green checkmark */
+}
+
+/* Incorrect Icon (Red X) */
+.incorrect-icon {
+  color: red; /* Red X */
+}
+
