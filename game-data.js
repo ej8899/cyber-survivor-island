@@ -59,13 +59,13 @@ function hideGameModal() {
 
 function updateGameModalContent(activeGameArea) {
   quizOptions.style.display = "none"; // Hide quiz options by default
-  
 
   // Handle Slides
   if (currentStep < activeGameArea.slides.length) {
     const slide = activeGameArea.slides[currentStep];
     modalTitle.textContent = slide.title;
     modalText.textContent = slide.content;
+    nextButton.textContent = "Next"; // Ensure text is "Next"
   }
   // Handle Quiz
   else if (currentStep === activeGameArea.slides.length) {
@@ -88,25 +88,36 @@ function updateGameModalContent(activeGameArea) {
     const conclusion = activeGameArea.conclusion;
     modalTitle.textContent = conclusion.title;
     modalText.textContent = conclusion.content;
-    nextButton.textContent = "Close";
-    nextButton.addEventListener("click", hideGameModal);
+    nextButton.textContent = "Close"; // Change button text to "Close"
   }
 }
 
 // Function to Start Game
 function startGame(activeGameAreaId) {
-  currentStep = 0; // Reset to the start of the game
-  const activeGameArea = gameAreas.find(area => area.id === activeGameAreaId);
+  currentStep = 0; // Reset the current step to the start
+  activeGameArea = gameAreas.find(area => area.id === activeGameAreaId);
 
-  console.log("startGame -> activeGameArea:", activeGameArea);
+  // Reset button text
+  nextButton.textContent = "Next";
+
+  // Attach the initial event listener
+  nextButton.onclick = function () {
+    nextStep(activeGameArea);
+  };
+
+  // Initialize the modal content and display it
   updateGameModalContent(activeGameArea);
   showGameModal();
+}
 
-  // Handle Next Button Click
-  nextButton.onclick = function () {
-    currentStep++;
-    if (currentStep <= activeGameArea.slides.length + 1) {
-      updateGameModalContent(activeGameArea);
-    }
-  };
+function nextStep(activeGameArea) {
+  currentStep++;
+
+  // If we're beyond the conclusion step, clean up and close the modal
+  if (currentStep > activeGameArea.slides.length + 1) {
+    hideGameModal();
+    nextButton.onclick = null; // Clean up the listener for the next game session
+  } else {
+    updateGameModalContent(activeGameArea);
+  }
 }
