@@ -124,23 +124,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const tips = [
     {
       tip: "Always verify the sender's email address to spot phishing attempts!",
-      imageUrl: "./images/phishing-tip.png", // Replace with the actual image path
+      imageUrl: "./images/phishing-tip.png", 
     },
     {
       tip: "Always use two-factor authentication (2FA) for extra account security!",
-      imageUrl: "./images/2fa-tip.png", // Replace with the actual image path
+      imageUrl: "./images/2fa-tip.png", 
     },
     {
       tip: "Data backups are important to protect against ransomware. Any less than 3 copies of your data is NOT a backup!",
-      imageUrl: "./images/backup-tip.png", // Replace with the actual image path
+      imageUrl: "./images/backup-tip.png", 
     },
     {
       tip: "Strong passwords should include a mix of uppercase, lowercase, numbers, and symbols!",
-      imageUrl: "./images/password-tip.png", // Replace with the actual image path
+      imageUrl: "./images/password-tip.png",
     },
     {
       tip: "Be cautious of links in unexpected emails or messages—they might be phishing attempts.",
-      imageUrl: "./images/suspicious-link.png", // Replace with the actual image path
+      imageUrl: "./images/suspicious-link.png",
     },
   ];
   
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create a new div for the info area
     const infoArea = document.createElement('div');
-    infoArea.className = 'map-area info';
+    infoArea.className = 'map-area info dubloon-bonus vertical-spin';
     infoArea.id = uniqueId;
     infoArea.setAttribute('data-area', 'quick tip!');
     infoArea.setAttribute('data-info', randomTip);
@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
       areaElement.style.background = '#008000'; // Darker green for completed
       areaElement.style.boxShadow = '0 0 20px #008000'; // Updated glow
       areaElement.setAttribute('data-area', 'completed'); // Update tooltip
+      areaElement.classList.remove('vertical-spin');
     }
   }
 
@@ -372,13 +373,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update the progress bar and text
     progressFill.style.width = `${progress}%`;
-    progressText.textContent = `${progress}%`;
+    progressText.textContent = `${progress}% of areas explored!`;
 
     if (debug==true) console.log(`Progress: ${progress}% (${completedAreas.size} of ${totalAreas} areas)`);
 
     if (progress >= 100) {
       console.log("WIN condition met")
-      createDubloons(70, 100, window.innerWidth - 100);
+      createDubloons(120, 100, window.innerWidth - 100);  // quantity, left margin, right margin
     }
   }
 

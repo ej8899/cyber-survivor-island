@@ -1,0 +1,35 @@
+.credits {
+  font-family: "Caveat Brush", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14pt;
+  margin: 20px;
+}
+
+.credits table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.credits td {
+  padding: 5px 10px;
+}
+
+.credits .title {
+  text-align: right;
+  font-weight: 400;
+  font-style: normal;
+  color: #555; /* Subdued title text */
+}
+
+.credits .name {
+  text-align: left;
+  color: #000; /* Emphasized name text */
+}
+
+.credits p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #666;
+}

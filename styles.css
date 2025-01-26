@@ -219,6 +219,9 @@ body {
   font-weight: normal; 
 
   z-index: 4;
+
+  background-image: url('./graphics/dubloon.webp');
+  background-size: cover;
 }
 
 .map-area.info:hover {
@@ -226,7 +229,7 @@ body {
   box-shadow: 0 0 20px #4caf50;
 }
 .map-area.info::after {
-  content: "!";
+  content: "";
   position: absolute;
   font-size: 16px; 
   color: white; 
