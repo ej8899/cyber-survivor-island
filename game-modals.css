@@ -16,13 +16,29 @@
 
 /* Modal Content */
 #game-modal-content {
-  background: #fff; 
-  padding: 20px;
-  max-width: 500px; 
+  position: relative; 
+  
   width: 90%; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  text-align: center;
+  
+  
+  background: linear-gradient(135deg, #0077be, #00c853); /* Tropical gradient */
+  border: 4px solid #ffd700; /* Gold border */
+  border-radius: 15px;
+  padding: 10px;
+  
+  margin-left: 0px;
+  /* width: 70%; */
+  max-width: 700px;
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  font-family: "Caveat Brush", serif;
+  color: #ffffff; /* White text for contrast */
+  position: relative; /* Ensure the image can be positioned outside */
+  overflow: visible; /* Allow content to spill outside */;
 }
 
 /* Modal Title */
@@ -73,3 +89,8 @@
   color: red; /* Red X */
 }
 
+#game-next-button {
+  position: absolute;
+  right: 20px; /* Adjust distance from the right edge */
+  bottom: 20px; /* Adjust distance from the bottom edge */
+}
