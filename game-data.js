@@ -1,7 +1,12 @@
 
 // game-data.js
 
-const gameAreas = [phishing, shipwreck];
+const gameAreas = [
+  phishing, 
+  shipwreck, 
+  passwords,
+  jungle
+];
 
 
 
