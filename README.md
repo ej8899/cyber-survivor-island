@@ -13,6 +13,7 @@ Welcome to **Cyber Survivor Island**, a fun and interactive web-based game that 
 - [Contributing](#contributing)
 - [License](#license)
 - [Credits](#credits)
+- [RoadMap](#roadmap)
 
 ---
 
@@ -111,3 +112,14 @@ Year: 2022
 ©℗: 2022 Epic Music World Label
 
 Fonts: Google Fonts (Caveat Brush)
+
+## RoadMap
+- [ ] Add more zones with more challenges
+- [ ] Game State Reset
+- [ ] Remember User
+- [ ] Backend for admin tracking of a company list
+- [ ] Mobile Friendly
+- [ ] Accessibility Improvements
+- [ ] Responsive Design
+- [ ] Company Branding
+- [ ] 
