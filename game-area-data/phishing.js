@@ -1,4 +1,5 @@
-const phishing = {
+const phishing = 
+{
   id: "phishing",
   title: "Phishing Basics",
   slides: [
