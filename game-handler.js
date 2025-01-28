@@ -23,7 +23,7 @@ function hideGameModal() {
 function updateGameModalContent(activeGameArea) {
   quizOptions.style.display = "none"; // Hide quiz options by default
   nextButton.style.display = "block"; // Default: show "Next" button
-
+console.log("updateGameModal -> ", activeGameArea)
   // Handle Slides
   if (currentStep < activeGameArea.slides.length) {
     const slide = activeGameArea.slides[currentStep];
