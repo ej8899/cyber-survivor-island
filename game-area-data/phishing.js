@@ -34,7 +34,7 @@ export const phishingData =
           image: "phishing_response.png",
       },
   ],
-  quiz: {
+  quizzes: [{
       question: "Which of these actions is NOT recommended when dealing with a suspicious email?",
       image: "phishing_quiz.png",
       choices: [
@@ -43,7 +43,7 @@ export const phishingData =
           { text: "Hover over links to check the URL", correct: false },
           { text: "Delete the email if it seems suspicious", correct: false },
       ],
-  },
+  }],
   conclusion: {
       title: "You’ve Completed Phishing Basics!",
       content: "Great job learning about phishing attacks! By recognizing the signs of phishing and knowing how to respond, you’re taking a big step towards protecting yourself and your organization. Stay vigilant and keep practicing good cybersecurity habits.",

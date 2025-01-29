@@ -34,7 +34,7 @@ export const jungleData =
           image: "protect_social_media_fraud.png",
       },
   ],
-  quiz: {
+  quizzes: [{
       question: "What is the best action to take if someone you know is asking for money on social media?",
       image: "social_media_quiz.png",
       choices: [
@@ -43,7 +43,7 @@ export const jungleData =
           { text: "Verify their identity through a different communication channel", correct: true },
           { text: "Share your personal details to confirm authenticity", correct: false },
       ],
-  },
+  }],
   conclusion: {
       title: "You’ve Completed Social Media Scams Basics!",
       content: "Well done! You now know how to identify and protect yourself from social media scams and impersonation. Stay vigilant, verify accounts, and use security settings to safeguard your identity online. Keep practicing safe social media habits!",

@@ -34,7 +34,7 @@ export const shipwreckData =
             image: "malware_response.png",
         },
     ],
-    quiz: {
+    quizzes: [{
       question: "Which action is the most effective in preventing malware infections?",
       image: "malware_quiz.png",
       choices: [
@@ -43,7 +43,7 @@ export const shipwreckData =
           { text: "Clicking on pop-ups to win prizes", correct: false },
           { text: "Ignoring antivirus software warnings", correct: false },
       ],
-    },
+    }],
     conclusion: {
         title: "You’ve Completed Malware Basics!",
         content: "Well done! You’ve learned how to identify and prevent malware attacks. By staying informed and cautious, you can keep your devices and data secure. Keep practicing safe cybersecurity habits!",

@@ -46,16 +46,28 @@ export const botnetbayData =
           image: "iot_response.png",
       },
   ],
-  quiz: {
-      question: "How can IoT devices be used in botnet attacks?",
-      image: "iot_quiz.png",
-      choices: [
-          { text: "By collecting too much data from their users", correct: false },
-          { text: "By being hacked and controlled remotely to launch cyberattacks", correct: true },
-          { text: "By automatically updating themselves", correct: false },
-          { text: "By blocking internet access when too many are connected", correct: false },
-      ],
-  },
+  quizzes: [
+      {
+          question: "How can IoT devices be used in botnet attacks?",
+          image: "iot_quiz.png",
+          choices: [
+              { text: "By collecting too much data from their users", correct: false },
+              { text: "By being hacked and controlled remotely to launch cyberattacks", correct: true },
+              { text: "By automatically updating themselves", correct: false },
+              { text: "By blocking internet access when too many are connected", correct: false },
+          ],
+      },
+      {
+          question: "What is the best way to prevent IoT devices from being hacked?",
+          image: "iot_quiz2.png",
+          choices: [
+              { text: "Keep default passwords and avoid updates", correct: false },
+              { text: "Only buy expensive IoT devices", correct: false },
+              { text: "Change default passwords, update firmware, and use a separate Wi-Fi network", correct: true },
+              { text: "Turn off IoT devices when not in use", correct: false },
+          ],
+      }
+  ],
   conclusion: {
       title: "You’ve Completed IoT & Botnet Basics!",
       content: "Great job learning about IoT security and botnets! By securing your smart devices, you help prevent cybercriminals from using them in attacks like those in Botnet Bay. Stay alert and keep your network safe!",

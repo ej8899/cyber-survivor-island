@@ -40,7 +40,7 @@ export const marketData =
           image: "shopping_response.png",
       },
   ],
-  quiz: {
+  quizzes: [{
       question: "Which of the following is the safest way to avoid shopping scams?",
       image: "shopping_quiz.png",
       choices: [
@@ -49,7 +49,7 @@ export const marketData =
           { text: "Enter your card details on any website that asks for them", correct: false },
           { text: "Ignore security alerts from your bank", correct: false },
       ],
-  },
+  }],
   conclusion: {
       title: "You’ve Completed Shopping Fraud Basics!",
       content: "Great job learning about shopping fraud and scams! By being cautious while shopping online and in-person, you can protect yourself from fraudsters. Stay vigilant and always verify before making a purchase!",

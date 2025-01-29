@@ -40,7 +40,7 @@ export const deepfakesData =
           image: "ai_in_cybersecurity.png",
       },
   ],
-  quiz: {
+  quizzes: [{
       question: "What is the best way to protect yourself from a deepfake scam?",
       image: "deepfake_quiz.png",
       choices: [
@@ -49,7 +49,7 @@ export const deepfakesData =
           { text: "Ignore signs like unnatural movements or mismatched audio", correct: false },
           { text: "Assume all media online is authentic", correct: false },
       ],
-  },
+  }],
   conclusion: {
       title: "You’ve Completed AI & Deepfake Basics!",
       content: "Great job learning about the dangers of AI and deepfakes! By staying cautious, verifying sources, and keeping up with detection tools, you can protect yourself from these emerging threats. Stay informed and vigilant!",

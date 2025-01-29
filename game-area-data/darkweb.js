@@ -40,8 +40,8 @@ export const darkwebData =
           image: "leak_response.png",
       },
   ],
-  quiz: {
-      question: "What is the best way to protect your accounts from being compromised and sold on the dark web?",
+  quizzes: [
+      {question: "What is the best way to protect your accounts from being compromised and sold on the dark web?",
       image: "dark_web_quiz.png",
       choices: [
           { text: "Use the same password for all accounts to make them easier to remember", correct: false },
@@ -49,7 +49,7 @@ export const darkwebData =
           { text: "Never check if your information has been leaked", correct: false },
           { text: "Ignore security alerts from websites and apps", correct: false },
       ],
-  },
+}],
   conclusion: {
       title: "You’ve Completed Dark Web Basics!",
       content: "Great job learning about the dangers of the dark web! By using strong passwords, monitoring for leaks, and enabling 2FA, you can protect yourself from having your data sold or misused. Stay secure and stay informed!",

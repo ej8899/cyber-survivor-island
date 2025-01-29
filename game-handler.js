@@ -1,7 +1,6 @@
-
-
 // Variables
-let currentStep = 0; // Tracks progress through slides, quiz, and conclusion
+let currentStep = 0; // Tracks progress through slides, quizzes, and conclusion
+let currentQuizIndex = 0; // Tracks the current quiz index
 
 // DOM Elements
 const modal = document.getElementById("game-modal");
@@ -23,7 +22,8 @@ function hideGameModal() {
 function updateGameModalContent(activeGameArea) {
   quizOptions.style.display = "none"; // Hide quiz options by default
   nextButton.style.display = "block"; // Default: show "Next" button
-console.log("updateGameModal -> ", activeGameArea)
+  console.log("updateGameModal -> ", activeGameArea);
+
   // Handle Slides
   if (currentStep < activeGameArea.slides.length) {
     const slide = activeGameArea.slides[currentStep];
@@ -31,55 +31,55 @@ console.log("updateGameModal -> ", activeGameArea)
     modalText.textContent = slide.content;
     nextButton.textContent = "Next"; // Ensure text is "Next"
   }
-  // Handle Quiz (only if a quiz exists)
-  else if (currentStep === activeGameArea.slides.length) {
-    if (activeGameArea.quiz) {
-      const quiz = activeGameArea.quiz;
-      modalTitle.textContent = "Quiz";
-      modalText.textContent = quiz.question;
-      quizOptions.style.display = "block"; // Show quiz options
-      quizOptions.innerHTML = ""; // Clear previous options
-      nextButton.style.display = "none"; // Hide "Next" button during quiz
+  // Handle Quizzes (if any exist)
+  else if (
+    activeGameArea.quizzes &&
+    currentStep < activeGameArea.slides.length + activeGameArea.quizzes.length
+  ) {
+    const quiz = activeGameArea.quizzes[currentQuizIndex];
+    modalTitle.textContent = `Quiz ${currentQuizIndex + 1}`;
+    modalText.textContent = quiz.question;
+    quizOptions.style.display = "block"; // Show quiz options
+    quizOptions.innerHTML = ""; // Clear previous options
+    nextButton.style.display = "none"; // Hide "Next" button during quiz
 
-      // Create quiz options
-      quiz.choices.forEach((choice, index) => {
-        const button = document.createElement("button");
-        button.textContent = choice.text;
-        button.classList.add("quiz-option"); // Add base class for quiz options
+    // Create quiz options
+    quiz.choices.forEach((choice, index) => {
+      const button = document.createElement("button");
+      button.textContent = choice.text;
+      button.classList.add("quiz-option"); // Add base class for quiz options
 
-        button.addEventListener("click", () => {
-          // Clear previous feedback icons
-          Array.from(quizOptions.children).forEach(btn => {
-            const icon = btn.querySelector(".quiz-icon");
-            if (icon) btn.removeChild(icon);
-          });
-
-          // Add feedback icon
-          const icon = document.createElement("span");
-          icon.classList.add("quiz-icon");
-          if (choice.correct) {
-            icon.textContent = "✔"; // Green check
-            icon.classList.add("correct-icon");
-            nextButton.style.display = "block"; // Allow progression
-            playSound(gold8Sound);
-          } else {
-            icon.textContent = "✖"; // Red X
-            icon.classList.add("incorrect-icon");
-            playSound(musket6Sound);
-          }
-          button.appendChild(icon);
+      button.addEventListener("click", () => {
+        // Clear previous feedback icons
+        Array.from(quizOptions.children).forEach((btn) => {
+          const icon = btn.querySelector(".quiz-icon");
+          if (icon) btn.removeChild(icon);
         });
 
-        quizOptions.appendChild(button);
+        // Add feedback icon
+        const icon = document.createElement("span");
+        icon.classList.add("quiz-icon");
+        if (choice.correct) {
+          icon.textContent = "✔"; // Green check
+          icon.classList.add("correct-icon");
+          nextButton.style.display = "block"; // Allow progression
+          playSound(gold8Sound);
+        } else {
+          icon.textContent = "✖"; // Red X
+          icon.classList.add("incorrect-icon");
+          playSound(musket6Sound);
+        }
+        button.appendChild(icon);
       });
-    } else {
-      // Skip quiz step if no quiz exists
-      currentStep++;
-      updateGameModalContent(activeGameArea);
-    }
+
+      quizOptions.appendChild(button);
+    });
   }
   // Handle Conclusion
-  else if (currentStep === activeGameArea.slides.length + 1) {
+  else if (
+    currentStep === activeGameArea.slides.length +
+      (activeGameArea.quizzes ? activeGameArea.quizzes.length : 0)
+  ) {
     const conclusion = activeGameArea.conclusion;
     modalTitle.textContent = conclusion.title;
     modalText.textContent = conclusion.content;
@@ -87,13 +87,13 @@ console.log("updateGameModal -> ", activeGameArea)
   }
 }
 
-
-
 // Function to Start Game
 function startGame(activeGameAreaId) {
   currentStep = 0; // Reset the current step to the start
-  const activeGameArea = gameAreas.find(area => area.id === activeGameAreaId);
-console.log("startGameArea -> ", activeGameAreaId)
+  currentQuizIndex = 0; // Reset quiz index
+  const activeGameArea = gameAreas.find((area) => area.id === activeGameAreaId);
+  console.log("startGameArea -> ", activeGameAreaId);
+
   // Reset button text
   nextButton.textContent = "Next";
 
@@ -108,13 +108,30 @@ console.log("startGameArea -> ", activeGameAreaId)
 }
 
 function nextStep(activeGameArea) {
-  currentStep++;
-
-  // If we're beyond the conclusion step, clean up and close the modal
-  if (currentStep > activeGameArea.slides.length + 1) {
+  // If we're at the conclusion step, close the modal immediately
+  if (
+    currentStep ===
+    activeGameArea.slides.length +
+      (activeGameArea.quizzes ? activeGameArea.quizzes.length : 0)
+  ) {
     hideGameModal();
     nextButton.onclick = null; // Clean up the listener for the next game session
-  } else {
-    updateGameModalContent(activeGameArea);
+    return; // Exit function early to prevent further step progression
   }
+
+  // Handle advancing through slides and quizzes
+  if (currentStep < activeGameArea.slides.length) {
+    currentStep++;
+  } else if (
+    activeGameArea.quizzes &&
+    currentQuizIndex < activeGameArea.quizzes.length
+  ) {
+    currentQuizIndex++;
+    currentStep++; // Advance quiz step
+  } else {
+    currentStep++;
+  }
+
+  updateGameModalContent(activeGameArea);
 }
+

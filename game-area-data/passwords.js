@@ -33,7 +33,7 @@ export const passwordsData = {
           image: "password_tips.png",
       },
   ],
-  quiz: {
+  quizzes: [{
       question: "What is the best way to manage your passwords securely?",
       image: "password_quiz.png",
       choices: [
@@ -42,7 +42,7 @@ export const passwordsData = {
           { text: "Use a password manager to store unique, complex passwords", correct: true },
           { text: "Share your passwords with a trusted friend for safekeeping", correct: false },
       ],
-  },
+  }],
   conclusion: {
       title: "You’ve Completed Password Basics!",
       content: "Great job learning about passwords and passphrases! By using strong passwords, enabling MFA, and leveraging a password manager, you’re taking important steps to protect your digital life. Stay secure and keep practicing good password habits!",

@@ -40,7 +40,7 @@ export const volcanoData =
           image: "vishing_response.png",
       },
   ],
-  quiz: {
+  quizzes: [{
       question: "What is the safest action if you receive a suspicious call asking for sensitive information?",
       image: "vishing_quiz.png",
       choices: [
@@ -49,7 +49,7 @@ export const volcanoData =
           { text: "Keep talking to gather as much information as possible", correct: false },
           { text: "Ignore the call and block the number", correct: false },
       ],
-  },
+  }],
   conclusion: {
       title: "You’ve Completed Vishing Basics!",
       content: "Great job learning about vishing attacks and how to protect yourself. By staying cautious and verifying suspicious calls, you can avoid falling victim to these scams. Keep practicing good cybersecurity habits!",

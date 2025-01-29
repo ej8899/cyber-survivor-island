@@ -34,7 +34,7 @@ export const blackmailData =
             image: "response_blackmail.png",
         },
     ],
-    quiz: {
+    quizzes: [{
         question: "What should you do if someone threatens to release sensitive information online?",
         image: "blackmail_quiz.png",
         choices: [
@@ -43,7 +43,7 @@ export const blackmailData =
             { text: "Report the incident to the platform and law enforcement", correct: true },
             { text: "Engage with the blackmailer to negotiate", correct: false },
         ],
-    },
+    }],
     conclusion: {
         title: "You’ve Completed Online Blackmail Basics!",
         content: "Great job learning about online blackmail and extortion. Remember, staying vigilant, protecting your privacy, and knowing how to respond can help safeguard you from such threats. Stay secure and seek help if needed!",
