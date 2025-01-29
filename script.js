@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
       areaElement.style.background = '#008000'; // Darker green for completed
       areaElement.style.boxShadow = '0 0 20px #008000'; // Updated glow
       areaElement.setAttribute('data-area', 'completed'); // Update tooltip
-      areaElement.classList.remove('vertical-spin');
+      // areaElement.classList.remove('vertical-spin');
     }
   }
 

@@ -8,7 +8,7 @@
   background-size: cover;
   animation: fall 2s linear forwards, rotate 2s linear forwards;
   animation-delay: var(--delay); /* Delays start of animation */
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 @keyframes fall {

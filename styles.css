@@ -246,6 +246,7 @@ body {
   background: #008000BF; /* Darker green for completed state */
   box-shadow: 0 0 20px #008000; /* Intensified glow for completed state */
   cursor: default; /* No pointer for completed areas */
+  color: black;
 }
 
 .map-area.info.completed::after {

@@ -16,6 +16,13 @@ function createDubloons(count, minMargin = 0, maxMargin = window.innerWidth) {
       dubloon.style.width = `${size}px`;
       dubloon.style.height = `${size}px`;
       dubloon.style.left = `${leftPosition}px`;
+      
+      playSound(goldSound);
+
+      // Add event listener for hover sound
+      dubloon.addEventListener('mouseenter', () => {
+        playSound(goldSound);
+      });
 
       console.log(`Creating dubloon: size=${size}, rotation=${rotation}, delay=${delay}, left=${leftPosition}`); // Debug log
 

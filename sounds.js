@@ -114,6 +114,8 @@ function reduceVolumeTo(value) {
 function playSound(soundElement) {
   // TODO: add option to repeat x times
   if (!isMuted && soundElement) {
+    if (!soundElement.paused) return; // already playing sound
+    if(debug) console.log("playing sound: ",soundElement)
     soundElement.currentTime = 0; 
     soundElement.play().catch(err => {
       if (debug) console.warn('Error playing sound:', err);
