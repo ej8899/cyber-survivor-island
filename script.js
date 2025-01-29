@@ -265,9 +265,10 @@ document.addEventListener('DOMContentLoaded', () => {
           // Function to play the sfx sound and track count
           const playSfxSound = () => {
             playCount++;
-            sfxSound.currentTime = 0;
-            sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
-            if (debug==true) console.log(`Sfx sound played ${playCount} times.`);
+            playSound(sfxSound)
+            //sfxSound.currentTime = 0;
+            //sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
+            //if (debug==true) console.log(`Sfx sound played ${playCount} times.`);
             if (playCount < 2) {
               sfxSound.onended = playSfxSound; // Play again when the first play ends
             } else {
@@ -305,12 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal && modalContent) {
       modalContent.textContent = infoContent; // Display the info content
       modal.style.display = 'flex'; // Show the modal
-      if (!isMuted && goldSound) {
-        goldSound.currentTime = 0; 
-        goldSound.play().catch(err => {
-          if (debug === true) console.warn('Error playing sound:', err);
-        });
-      }
+      playSound(goldSound);
     } else {
       if (debug==true) console.error('Info modal elements not found!');
     }
@@ -406,12 +402,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // no mouse noise if game area active
       const overlay = document.getElementById('full-screen-overlay');
     
-      if (!isMuted && mouseSound && overlay.style.display == 'none') {
+      if (overlay.style.display == 'none') {
         // mouseSound.volume = soundVolume * 0.8;
-        mouseSound.currentTime = 0; 
-        mouseSound.play().catch(err => {
-          if (debug === true) console.warn('Error playing mouse sound:', err);
-        });
+        playSound(mouseSound);
+        // mouseSound.currentTime = 0; 
+        // mouseSound.play().catch(err => {
+        //   if (debug === true) console.warn('Error playing mouse sound:', err);
+        // });
       }
       // Schedule to hide the graphic
       setTimeout(() => {
