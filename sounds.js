@@ -111,3 +111,11 @@ function reduceVolumeTo(value) {
     console.log(`Volume set to ${value * 100}%`);
 }
 
+function playSound(soundElement) {
+  if (!isMuted && soundElement) {
+    soundElement.currentTime = 0; 
+    soundElement.play().catch(err => {
+      if (debug === true) console.warn('Error playing sound:', err);
+    });
+  }
+}
