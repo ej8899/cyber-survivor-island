@@ -1,6 +1,6 @@
 const deepfakes = 
 {
-  id: "ai_deepfakes",
+  id: "deepfakes",
   title: "Dangers of AI & Deepfakes",
   slides: [
       {

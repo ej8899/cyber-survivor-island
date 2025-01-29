@@ -272,12 +272,19 @@ body {
 }
 
 .map-area.completed::before {
-  content: '';
   display: block;
   width: 100%;
   height: 100%;
-  background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
-  background-size:cover;
+  /* background: url('./graphics/svg/check-mark-svgrepo-com.svg') no-repeat center center;
+  background-size:cover; */
+
+  content: '✔';
+  display: flex; /* Use flexbox for easy centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%;
+  height: 100%;
+  font-size: 2em; /* Increase font size for bigger checkmark */ 
 }
 
 .map-area.completed::after {
@@ -463,6 +470,7 @@ body {
   justify-content: space-between; /* Align items to the left and right */
   align-items: center;
   padding: 0px;
+  padding-top: 0.2em;
   width: 100%;
   box-sizing: border-box;
 }

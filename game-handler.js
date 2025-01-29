@@ -91,7 +91,7 @@ console.log("updateGameModal -> ", activeGameArea)
 function startGame(activeGameAreaId) {
   currentStep = 0; // Reset the current step to the start
   const activeGameArea = gameAreas.find(area => area.id === activeGameAreaId);
-
+console.log("startGameArea -> ", activeGameAreaId)
   // Reset button text
   nextButton.textContent = "Next";
 

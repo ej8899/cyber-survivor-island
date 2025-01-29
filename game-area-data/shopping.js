@@ -1,6 +1,6 @@
 const market = 
 {
-  id: "shopping_fraud",
+  id: "market",
   title: "Shopping Frauds & Scams",
   slides: [
       {
