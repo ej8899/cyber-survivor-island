@@ -112,10 +112,11 @@ function reduceVolumeTo(value) {
 }
 
 function playSound(soundElement) {
+  // TODO: add option to repeat x times
   if (!isMuted && soundElement) {
     soundElement.currentTime = 0; 
     soundElement.play().catch(err => {
-      if (debug === true) console.warn('Error playing sound:', err);
+      if (debug) console.warn('Error playing sound:', err);
     });
   }
 }

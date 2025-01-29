@@ -14,5 +14,5 @@ const gameAreas = [
   botnetbay,
 ];
 
-console.log("game area blackmail",gameAreas)
+if (debug) console.log("game area list:",gameAreas)
 

@@ -249,15 +249,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (area.classList.contains('info')) {
         // Handle info modal
-        if (debug==true) console.log(`INFO area clicked: ${areaId}`);
+        if (debug) console.log(`INFO area clicked: ${areaId}`);
         const infoData = area.dataset.info;
         if (infoData) {
           showInfoModal(infoData);
         } else {
-          if (debug==true) console.error(`Missing info data for area: ${area.id}`);
+          if (debug) console.error(`Missing info data for area: ${area.id}`);
         }
       } else {
-        if (debug==true) console.log("Game area clicked:", areaId);
+        if (debug) console.log("Game area clicked:", areaId);
           // Play the area click sound
         if (sfxSound) {
           let playCount = 0;
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Store the active area's ID on the modal for reference
         modal.dataset.activeArea = areaId;
-        if (debug==true) console.log(`Active area set to: ${areaId}`);
+        if (debug) console.log(`Active area set to: ${areaId}`);
 
         // Show the modal
         modal.classList.remove('hidden');
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'flex'; // Show the modal
       playSound(goldSound);
     } else {
-      if (debug==true) console.error('Info modal elements not found!');
+      if (debug) console.error('Info modal elements not found!');
     }
   }
   
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progressFill.style.width = `${progress}%`;
     progressText.textContent = `${progress}% of areas explored!`;
 
-    if (debug==true) console.log(`Progress: ${progress}% (${completedAreas.size} of ${totalAreas} areas)`);
+    if (debug) console.log(`Progress: ${progress}% (${completedAreas.size} of ${totalAreas} areas)`);
 
     if (progress >= 100) {
       console.log("WIN condition met")
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomDelay = Math.random() * (50000 - 20000) + 20000; // Random delay between 20 and 50 seconds
     const randomDuration = Math.random() * (20000 - 5000) + 5000; // Random visible duration between 5 and 20 seconds
 
-    if (debug == true) console.log("mouse details: delay: " + parseInt(randomDelay/1000) + "s -- duration:" + parseInt(randomDuration/1000) +"s");
+    if (debug) console.log("mouse details: delay: " + parseInt(randomDelay/1000) + "s -- duration:" + parseInt(randomDuration/1000) +"s");
     // Schedule to show the graphic
     setTimeout(() => {
       mouseGraphic.style.opacity = '1'; // Fade in
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   function loadMiniGame(gameTitle,backgroundImage,activeArea) {
-    if(debug==true) console.log("Loading mini-game:", gameTitle);
+    if(debug) console.log("Loading mini-game:", gameTitle);
 
     // set new BG
     showFullScreenImage(backgroundImage);
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeGameArea = gameAreas.find(area => area.id === activeArea);
 
     // open info modal
-    if(debug==true) console.log("active game area: " + activeArea);
+    if(debug) console.log("active game area: " + activeArea);
     startGame(activeArea);
 
     // open challenge Modal
