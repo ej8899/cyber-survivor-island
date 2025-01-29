@@ -1,4 +1,4 @@
-const botnetbay = 
+export const botnetbayData = 
 {
   id: "botnetbay",
   title: "Dangers of IoT Devices & Botnets",

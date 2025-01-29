@@ -1,4 +1,4 @@
-const darkweb = 
+export const darkwebData = 
 {
   id: "darkweb",
   title: "Dangers of the Dark Web",

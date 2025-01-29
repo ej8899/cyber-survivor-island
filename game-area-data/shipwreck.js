@@ -1,4 +1,4 @@
-const shipwreck =
+export const shipwreckData =
   {
     id: "shipwreck",
     title: "Malware Wreckage",

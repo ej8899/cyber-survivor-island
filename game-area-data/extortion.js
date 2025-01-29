@@ -1,4 +1,4 @@
-const blackmail = 
+export const blackmailData = 
   {
     id: "blackmail",
     title: "Online Blackmail & Extortion",

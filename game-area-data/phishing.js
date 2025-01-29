@@ -1,4 +1,4 @@
-const phishing = 
+export const phishingData = 
 {
   id: "phishing",
   title: "Phishing Basics",

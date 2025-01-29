@@ -1,4 +1,4 @@
-const volcano = 
+export const volcanoData = 
 {
   id: "volcano",
   title: "Vishing Attacks",

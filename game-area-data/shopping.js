@@ -1,4 +1,4 @@
-const market = 
+export const marketData = 
 {
   id: "market",
   title: "Shopping Frauds & Scams",

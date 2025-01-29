@@ -1,4 +1,4 @@
-const jungle = 
+export const jungleData = 
 {
   id: "jungle",
   title: "Social Media Scams & Fraud",

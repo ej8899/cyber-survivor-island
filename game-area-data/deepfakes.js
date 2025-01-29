@@ -1,4 +1,4 @@
-const deepfakes = 
+export const deepfakesData = 
 {
   id: "deepfakes",
   title: "Dangers of AI & Deepfakes",

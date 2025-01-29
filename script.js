@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // const gameAreas = document.querySelectorAll('.map-area:not(.info)').length;
+  gameAreas = window.gameAreas;
   let completedProgress = 0;
 
   const asciiArt = `
@@ -430,6 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showFullScreenImage(backgroundImage);
     
     // 'load' the active game data
+    if(debug) console.log("loadMiniGame -> gameAreas: " + window.gameAreas);
     const activeGameArea = gameAreas.find(area => area.id === activeArea);
 
     // open info modal

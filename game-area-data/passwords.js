@@ -1,4 +1,4 @@
-const passwords = {
+export const passwordsData = {
   id: "passwords",
   title: "Passwords & Passphrases",
   slides: [
