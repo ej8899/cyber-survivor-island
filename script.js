@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sfxSound = document.getElementById('sfxSound');
   const goldSound = document.getElementById('goldSound');
   const mouseSound = document.getElementById('mouseSound');
+  const musket6Sound = document.getElementById('mouseSound');
+  const gold8Sound = document.getElementById('mouseSound');
 
   const progressFill = document.getElementById('progressFill');
   const progressText = document.getElementById('progressText');

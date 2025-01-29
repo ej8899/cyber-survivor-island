@@ -61,9 +61,11 @@ console.log("updateGameModal -> ", activeGameArea)
             icon.textContent = "✔"; // Green check
             icon.classList.add("correct-icon");
             nextButton.style.display = "block"; // Allow progression
+            playSound(gold8Sound);
           } else {
             icon.textContent = "✖"; // Red X
             icon.classList.add("incorrect-icon");
+            playSound(musket6Sound);
           }
           button.appendChild(icon);
         });
