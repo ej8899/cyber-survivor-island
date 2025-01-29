@@ -119,6 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Extortion Point',
       description: 'Face and thwart the threats of online blackmailers.',
     },
+    botnetbay: {
+      title: 'Botnet Bay',
+      description: 'Smart-home devices came under attack and are now spying on your family!  Protect your home network from botnets!',
+    },
   };
 
   const tips = [

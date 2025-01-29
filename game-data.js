@@ -11,6 +11,7 @@ const gameAreas = [
   market,
   darkweb,
   deepfakes,
+  botnetbay,
 ];
 
 console.log("game area blackmail",gameAreas)

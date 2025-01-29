@@ -95,6 +95,11 @@ body {
   left: 100px;
 }
 
+#botnetbay {
+  top: 320px;
+  left: 300px;
+}
+
 .game-title {
   font-size: 4em;
   color: #8b5e3c; /* Wood color */
