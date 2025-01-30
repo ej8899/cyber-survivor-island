@@ -9,11 +9,17 @@
   animation: fall 2s linear forwards, rotate 2s linear forwards;
   animation-delay: var(--delay); /* Delays start of animation */
   pointer-events: auto;
+  transition: transform 0.2s ease-in-out; /* Smooth hover transition */
+}
+
+/* Only applies after animation ends */
+.dubloon.hover-active:hover {
+  transform: scale(1.2) rotate(10deg); /* Scale & slightly rotate on hover */
 }
 
 @keyframes fall {
   0% {
-      transform: translateY(0);
+      top: -100px;
   }
   100% {
       top: calc(100vh - 10px - var(--size));
@@ -29,7 +35,6 @@
   }
 }
 
-
 @keyframes vertical-spin {
   from {
       transform: rotateY(0deg);
@@ -37,20 +42,4 @@
   to {
       transform: rotateY(360deg);
   }
-}
-
-
-.dubloon-bonus {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-image: url('./graphics/dubloon.webp');
-  background-size: cover;
-  animation: rotate 2s linear forwards;
-  animation-delay: var(--delay); /* Delays start of animation */
-  pointer-events: auto;
-}
-
-.vertical-spin {
-  animation: vertical-spin 2s linear infinite;
 }
