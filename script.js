@@ -130,26 +130,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const tips = [
     {
-      tip: "Always verify the sender's email address to spot phishing attempts!",
-      imageUrl: "./images/phishing-tip.png", 
+        tip: "📧 Always verify the sender's email address to spot phishing attempts! Cybercriminals often spoof email addresses to look legitimate. Look for subtle misspellings or strange domain names. If in doubt, contact the sender through a known and trusted method.",
+        imageUrl: "./images/phishing-tip.png", 
     },
     {
-      tip: "Always use two-factor authentication (2FA) for extra account security!",
-      imageUrl: "./images/2fa-tip.png", 
+        tip: "🔐 Always use two-factor authentication (2FA) for extra account security! Even if someone steals your password, they won’t be able to access your account without the second factor. Use app-based authentication like Google Authenticator or a hardware key instead of SMS whenever possible.",
+        imageUrl: "./images/2fa-tip.png", 
     },
     {
-      tip: "Data backups are important to protect against ransomware. Any less than 3 copies of your data is NOT a backup!",
-      imageUrl: "./images/backup-tip.png", 
+        tip: "💾 Data backups are important to protect against ransomware. Any less than 3 copies of your data is NOT a backup! Follow the 3-2-1 rule: 3 copies, on 2 different storage types, with 1 stored offsite. This ensures you can recover if disaster strikes.",
+        imageUrl: "./images/backup-tip.png", 
     },
     {
-      tip: "Strong passwords should include a mix of uppercase, lowercase, numbers, and symbols!",
-      imageUrl: "./images/password-tip.png",
+        tip: "🔑 Strong passwords should include a mix of uppercase, lowercase, numbers, and symbols! Avoid predictable patterns and never reuse passwords across sites. Better yet, use a password manager to generate and store unique, complex passwords for every account.",
+        imageUrl: "./images/password-tip.png",
     },
     {
-      tip: "Be cautious of links in unexpected emails or messages—they might be phishing attempts.",
-      imageUrl: "./images/suspicious-link.png",
+        tip: "⚠️ Be cautious of links in unexpected emails or messages—they might be phishing attempts. Hover over links to preview the actual URL before clicking. When in doubt, go directly to the website by typing the address instead of clicking on the link.",
+        imageUrl: "./images/suspicious-link.png",
+    },
+    {
+        tip: "📡 Public Wi-Fi can be a hacker’s playground. Avoid accessing sensitive accounts on open networks. If you must, use a VPN to encrypt your data. Hackers can set up fake Wi-Fi hotspots to intercept your information, so always verify you're on a legitimate network.",
+        imageUrl: "./images/public-wifi.png",
+    },
+    {
+        tip: "🛠️ Keep your software and operating system updated to patch security vulnerabilities. Cybercriminals exploit outdated software to gain access to systems. Enable automatic updates when possible to stay protected against the latest threats.",
+        imageUrl: "./images/software-update.png",
+    },
+    {
+        tip: "🎭 If a deal or offer seems too good to be true, it probably is! Scammers often use urgency or limited-time offers to trick victims. Always verify deals on official websites instead of clicking on email or social media links.",
+        imageUrl: "./images/scam-warning.png",
+    },
+    {
+        tip: "🔒 Limit the personal information you share on social media. Cybercriminals can use details like your birthday, location, or job to guess passwords or impersonate you. Review your privacy settings to control who can see your posts and personal details.",
+        imageUrl: "./images/social-media-tip.png",
+    },
+    {
+        tip: "🤔 Trust but verify! Just because a message looks like it’s from your boss, bank, or a friend doesn’t mean it is. Cybercriminals use social engineering to manipulate people into giving up sensitive info. When in doubt, double-check through a different communication channel - a good old fashioned phone call even!",
+        imageUrl: "./images/social-engineering.png",
     },
   ];
+
+
   
   
   infoAreaData.forEach(position => {
@@ -198,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
       areaElement.style.background = '#008000'; // Darker green for completed
       areaElement.style.boxShadow = '0 0 20px #008000'; // Updated glow
       areaElement.setAttribute('data-area', 'completed'); // Update tooltip
-      // areaElement.classList.remove('vertical-spin');
+      areaElement.classList.remove('vertical-spin');
     }
   }
 
@@ -369,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-// Update progress bar
+  // Update progress bar
   function updateProgressBar() {
     const totalAreas = document.querySelectorAll('.map-area').length;
     const progress = Math.min(100, Math.round((completedAreas.size / totalAreas) * 100));

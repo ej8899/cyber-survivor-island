@@ -247,14 +247,15 @@ body {
   box-shadow: 0 0 20px #008000; /* Intensified glow for completed state */
   cursor: default; /* No pointer for completed areas */
   color: black;
+  animation: pulse 1.5s infinite;
 }
 
 .map-area.info.completed::after {
-  content: "found"; /* tool tip */
+  content: "found";
   font-size: 14px;
   color: white;
   font-weight: lighter;
-}
+} 
 
 .map-area.incomplete::before {
   position: absolute;
