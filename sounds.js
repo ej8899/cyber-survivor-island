@@ -111,14 +111,31 @@ function reduceVolumeTo(value) {
     console.log(`Volume set to ${value * 100}%`);
 }
 
+const soundRateLimit = 70; // Minimum time (ms) between sound plays
+let lastSoundTime = 0; 
+
 function playSound(soundElement) {
-  // TODO: add option to repeat x times
   if (!isMuted && soundElement) {
-    if (!soundElement.paused) return; // already playing sound
-    if(debug) console.log("playing sound: ",soundElement)
-    soundElement.currentTime = 0; 
-    soundElement.play().catch(err => {
+    const now = Date.now();
+    if (now - lastSoundTime < soundRateLimit) {
+      return; // Too soon, skip this sound
+    }
+    lastSoundTime = now; // Update last play time
+
+    const newAudio = new Audio(soundElement.src);
+    newAudio.playbackRate = 0.9 + Math.random() * 0.2; // Slight pitch variation
+    newAudio.currentTime = 0; 
+    newAudio.volume = soundElement.volume; 
+
+    newAudio.play().catch(err => {
       if (debug) console.warn('Error playing sound:', err);
     });
+
+    newAudio.onended = () => {
+      newAudio.remove();
+    };
   }
 }
+
+
+
