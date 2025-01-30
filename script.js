@@ -283,23 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (debug) console.log("Game area clicked:", areaId);
           // Play the area click sound
         if (sfxSound) {
-          let playCount = 0;
-
-          // Function to play the sfx sound and track count
-          const playSfxSound = () => {
-            playCount++;
-            playSound(sfxSound)
-            //sfxSound.currentTime = 0;
-            //sfxSound.play().catch(err => console.error("Error playing Sfx sound:", err));
-            //if (debug==true) console.log(`Sfx sound played ${playCount} times.`);
-            if (playCount < 2) {
-              sfxSound.onended = playSfxSound; // Play again when the first play ends
-            } else {
-              sfxSound.onended = null; // Remove the event listener after the second play
-            }
-          };
-
-          playSfxSound(); // Start the first play
+          playSound(sfxSound,2)
         }
         // Show modal with the area's story
         // console.log(`No story found for area: ${areaId}`);
@@ -491,6 +475,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // enableGameInteraction();
   });
 
+
+  // 
+  // CHEAT mode if debug is on -- completeAllAreas() in console to complete main game areas.
+  //
+  if (debug) {
+    window.completeAllAreas = function() {
+      document.querySelectorAll('.map-area:not(.info)').forEach(area => {
+        area.classList.remove('incomplete');
+        area.classList.add('completed');
+        completedAreas.add(area.id);
+      });
+      updateProgressBar();
+      console.log("Cheat activated: All areas completed!");
+    };
+  }
+  
 
   // end of DOM handler
 });
