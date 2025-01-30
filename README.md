@@ -14,6 +14,7 @@ Welcome to **Cyber Survivor Island**, a fun and interactive web-based game that 
 - [License](#license)
 - [Credits](#credits)
 - [RoadMap](#roadmap)
+- [Cheats](#cheats)
 
 ---
 
@@ -34,7 +35,7 @@ Welcome to **Cyber Survivor Island**, a fun and interactive web-based game that 
 ## **Technologies Used**
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: PHP, MySQL (for user accounts and progress)
-- **Graphics**: Custom SVGs and animated CSS effects
+- **Graphics**: Custom SVGs and animated CSS effects, Dall-E-generated visuals
 - **Development Tools**: Visual Studio Code, GitHub
 - **Assets**: DALL·E-generated visuals and custom-designed map elements
 
@@ -101,7 +102,7 @@ Artwork:	Ernie Johnson
 Sounds:	Gravity Sound Studio
 QA/Testing:	JR
 
-Icons: https://www.svgrepo.com/
+Icons: https://www.svgrepo.com/  
 ASCII art: https://www.asciiart.eu/text-to-ascii-art 
 
 Music:
@@ -122,4 +123,7 @@ Fonts: Google Fonts (Caveat Brush)
 - [ ] Accessibility Improvements
 - [ ] Responsive Design
 - [ ] Company Branding
-- [ ] 
+
+## Cheats
+If Debug mode is on (true), you can use the following cheats in the console:
+```completeAllAreas()``` - Completes all main game areas (mini areas are not included).
